@@ -13,5 +13,39 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{eb5be6a8-1231-4e5a-9330-d81d85d7a196}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utills">
+      <UniqueIdentifier>{66972929-e37e-4469-a673-3f1c6fa8ea6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Src">
+      <UniqueIdentifier>{a6a7e95e-2e35-4a07-8d39-ebe569f4fac5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Utills.c">
+      <Filter>Source Files\Utills</Filter>
+    </ClCompile>
+    <ClCompile Include="MapControler.c">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.c">
+      <Filter>Source Files\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="App.c">
+      <Filter>Source Files\Src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MapControler.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Utills.h">
+      <Filter>Source Files\Utills</Filter>
+    </ClInclude>
+    <ClInclude Include="App.h">
+      <Filter>Source Files\Src</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

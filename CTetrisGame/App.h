@@ -2,8 +2,10 @@
 #ifndef APP_H
 #define APP_H
 #include "stdio.h"
+#include "MapControler.h"
 
 void Run();
-
+void Init();
+void shutdown_app();
 
 #endif

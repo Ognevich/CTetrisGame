@@ -4,12 +4,20 @@ void Run()
 {
 
 	while (1) {
-
-		int option = 0;
-		scanf("%d", &option);
-
-
+	
+		createMap();
+		showMap();
+		wait();
 	}
 
 
+}
+
+void Init()
+{
+	initMapArray();
+}
+
+void shutdown_app() {
+	freeMapArray();
 }

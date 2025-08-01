@@ -4,3 +4,8 @@ void clearScreen()
 {
 	system("cls");
 }
+
+void wait() {
+
+	Sleep(SLEEP_TIME);
+};

@@ -3,14 +3,17 @@
 #include <stdio.h>
 #include "Utills.h"
 
+#define MAP_HEIGHT 20
+#define MAP_WIDTH 40
 
-#define MAP_HEIGHT 10
-#define MAP_WIDTH 20
+extern char** mapArr;
+extern size_t arraySize;
 
+void createMap();
+void showMap();
 
-extern char* Map;
-
-void drawMap();
 int checkMapCollision(int height, int width);
 
+void initMapArray();
+void freeMapArray();
 #endif

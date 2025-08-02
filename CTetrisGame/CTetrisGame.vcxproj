@@ -130,6 +130,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="FigureControler.h" />
     <ClInclude Include="MapControler.h" />
     <ClInclude Include="Utills.h" />
   </ItemGroup>

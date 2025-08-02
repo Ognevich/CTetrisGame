@@ -6,6 +6,7 @@
 
 void Run();
 void Init();
+void Update();
 void shutdown_app();
 
 #endif

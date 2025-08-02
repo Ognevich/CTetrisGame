@@ -1,16 +1,22 @@
 #ifndef MAP_DRAWER_H
 #define MAP_DRAWER_H
 #include <stdio.h>
+#include "Config.h"
 #include "Utills.h"
 
-#define MAP_HEIGHT 20
-#define MAP_WIDTH 40
 
 extern char** mapArr;
 extern size_t arraySize;
 
 void createMap();
+void updateMap();
 void showMap();
+
+void addBorders(int x_coord, int y_coord);
+void addObject(int x_coord, int y_coord);
+
+void moveObject();
+
 
 int checkMapCollision(int height, int width);
 

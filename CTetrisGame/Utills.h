@@ -2,8 +2,8 @@
 #define UTILLS_H
 #include <windows.h>
 #include <stdio.h>
+#include "Config.h"
 
-#define SLEEP_TIME 75
 
 void clearScreen();
 void wait();

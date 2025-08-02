@@ -47,5 +47,11 @@
     <ClInclude Include="App.h">
       <Filter>Source Files\Src</Filter>
     </ClInclude>
+    <ClInclude Include="FigureControler.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

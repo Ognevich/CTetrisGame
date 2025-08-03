@@ -1,6 +1,7 @@
 #ifndef MAP_DRAWER_H
 #define MAP_DRAWER_H
 #include <stdio.h>
+#include "FigureControler.h"
 #include "Config.h"
 #include "Utills.h"
 
@@ -14,9 +15,6 @@ void showMap();
 
 void addBorders(int x_coord, int y_coord);
 void addObject(int x_coord, int y_coord);
-
-void moveObject();
-
 
 int checkMapCollision(int height, int width);
 

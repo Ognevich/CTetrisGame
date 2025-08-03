@@ -15,6 +15,7 @@ void Run()
 void Init()
 {
 	initMapArray();
+	initObjectValues();
 	createMap();
 }
 

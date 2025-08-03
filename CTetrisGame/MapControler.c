@@ -3,8 +3,6 @@
 char** mapArr = NULL;
 size_t arraySize;
 
-int currentPosX = 1;
-int currentPosY = MAP_WIDTH / 2;
 
 void createMap()
 {
@@ -19,10 +17,10 @@ void updateMap()
 {
 	for (int i = 0; i < MAP_HEIGHT; i++) {
 		for (int j = 0; j < MAP_WIDTH; j++) {
-			if (checkMapCollision(i,j) == 0) {
-				mapArr[i][j] == ' ';
+			if ((checkMapCollision(i,j) == 0) && i < getCurrentPosX()) {
+				mapArr[i][j] = ' ';
 			}
-			addObject(i,j);
+			addObject(i, j);
 		}
 	}
 }
@@ -49,19 +47,20 @@ void addBorders(int x_coord, int y_coord)
 	}
 }
 
-
-void addObject(int x_coord, int y_coord)
+void addObject(int y_coord, int x_coord)
 {
-	if (x_coord == currentPosX && y_coord == currentPosY) {
-		mapArr[x_coord][y_coord] = '0';
+
+
+	if (x_coord == getCurrentPosX() && y_coord == getCurrentPosY()) {
+		for (int i = y_coord; i < OBJECT_SIZE + y_coord; i++) {
+			for (int j = x_coord; j < OBJECT_SIZE + x_coord; j++) {
+				if (figureI[i - y_coord][j - x_coord] == '0')
+					mapArr[i][j] = figureI[i - y_coord][j-x_coord];
+			}
+		}
 	}
 }
 
-void moveObject()
-{
-	if (currentPosX < MAP_HEIGHT - 2) 
-		currentPosX++;
-}
 
 int checkMapCollision(int height, int width)
 {

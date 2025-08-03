@@ -22,6 +22,9 @@
     <Filter Include="Source Files\Src">
       <UniqueIdentifier>{a6a7e95e-2e35-4a07-8d39-ebe569f4fac5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Figures">
+      <UniqueIdentifier>{1da5040e-eb09-4768-b236-b7471e892568}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utills.c">
@@ -36,6 +39,12 @@
     <ClCompile Include="App.c">
       <Filter>Source Files\Src</Filter>
     </ClCompile>
+    <ClCompile Include="FigureControler.c">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Figures.c">
+      <Filter>Source Files\Engine\Figures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MapControler.h">
@@ -49,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="FigureControler.h">
       <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Figures.h">
+      <Filter>Source Files\Engine\Figures</Filter>
     </ClInclude>
     <ClInclude Include="Config.h">
       <Filter>Source Files\Engine</Filter>

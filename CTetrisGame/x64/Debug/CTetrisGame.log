@@ -1,3 +1,2 @@
 ﻿  MapControler.c
-D:\my_projects\C\CTetrisGame\CTetrisGame\MapControler.c(23,18): warning C4553: '==': result of expression not used; did you intend '='?
   CTetrisGame.vcxproj -> D:\my_projects\C\CTetrisGame\x64\Debug\CTetrisGame.exe

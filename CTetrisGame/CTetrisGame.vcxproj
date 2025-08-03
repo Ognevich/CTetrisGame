@@ -124,6 +124,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="App.c" />
+    <ClCompile Include="FigureControler.c" />
+    <ClCompile Include="Figures.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="MapControler.c" />
     <ClCompile Include="Utills.c" />
@@ -132,6 +134,7 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="FigureControler.h" />
+    <ClInclude Include="Figures.h" />
     <ClInclude Include="MapControler.h" />
     <ClInclude Include="Utills.h" />
   </ItemGroup>

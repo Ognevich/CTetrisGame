@@ -13,6 +13,7 @@ extern size_t arraySize;
 void createMap();
 void updateMap();
 void showMap();
+void clearMap();
 
 void addBorders(int x_coord, int y_coord);
 void addObject(int x_coord, int y_coord);

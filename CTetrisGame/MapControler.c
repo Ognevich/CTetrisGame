@@ -17,24 +17,15 @@ void updateMap()
 {
 	for (int i = 0; i < MAP_HEIGHT; i++) {
 		for (int j = 0; j < MAP_WIDTH; j++) {
-			if ((checkMapCollision(i,j) == 0) && i < getCurrentPosX()) {
+
+			bool isFigurePos = checkFigureCollision(i,j);
+
+			if (checkMapCollision(i,j) == 0 && !isFigurePos){
 				mapArr[i][j] = ' ';
 			}
 			addObject(i, j);
 		}
 	}
-}
-
-void showMap()
-{
-	clearScreen();
-	for (int i = 0; i < MAP_HEIGHT ; i++) {
-		for (int j = 0; j < MAP_WIDTH ; j++) {
-				printf("%c" ,mapArr[i][j]);
-		}
-		printf("\n");
-	}
-
 }
 
 void addBorders(int x_coord, int y_coord)
@@ -49,18 +40,36 @@ void addBorders(int x_coord, int y_coord)
 
 void addObject(int y_coord, int x_coord)
 {
-
+	Vector2 coord;
 
 	if (x_coord == getCurrentPosX() && y_coord == getCurrentPosY()) {
 		for (int i = y_coord; i < OBJECT_SIZE + y_coord; i++) {
 			for (int j = x_coord; j < OBJECT_SIZE + x_coord; j++) {
-				if (figureI[i - y_coord][j - x_coord] == '0')
-					mapArr[i][j] = figureI[i - y_coord][j-x_coord];
+				if (figureO[i - y_coord][j - x_coord] == '0') {
+					coord.x = i;
+					coord.y = j;
+
+					coordArray[i - y_coord][j - x_coord] = coord;
+
+					mapArr[i][j] = figureO[i - y_coord][j - x_coord];
+				}
 			}
 		}
 	}
 }
 
+
+void showMap()
+{
+	clearScreen();
+	for (int i = 0; i < MAP_HEIGHT ; i++) {
+		for (int j = 0; j < MAP_WIDTH ; j++) {
+				printf("%c" ,mapArr[i][j]);
+		}
+		printf("\n");
+	}
+
+}
 
 int checkMapCollision(int height, int width)
 {

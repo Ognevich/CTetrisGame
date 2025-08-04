@@ -15,7 +15,8 @@ void Run()
 void Init()
 {
 	initMapArray();
-	initObjectValues();
+	setDafaultCoordPos();
+	MoveVectorPos();
 	createMap();
 }
 

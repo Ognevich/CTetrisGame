@@ -1,6 +1,7 @@
 #ifndef MAP_DRAWER_H
 #define MAP_DRAWER_H
 #include <stdio.h>
+#include <stdbool.h>
 #include "FigureControler.h"
 #include "Config.h"
 #include "Utills.h"

@@ -4,9 +4,8 @@
 #include <stdio.h>
 #include "Config.h"
 
-
-void clearScreen();
-void wait();
+void clearGameScreen();
+void wait(int sleepTime);
 
 #endif
 

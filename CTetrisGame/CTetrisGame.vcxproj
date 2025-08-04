@@ -126,6 +126,7 @@
     <ClCompile Include="App.c" />
     <ClCompile Include="FigureControler.c" />
     <ClCompile Include="Figures.c" />
+    <ClCompile Include="keyboardDetector.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="MapControler.c" />
     <ClCompile Include="Utills.c" />
@@ -135,6 +136,7 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="FigureControler.h" />
     <ClInclude Include="Figures.h" />
+    <ClInclude Include="keyboardDetector.h" />
     <ClInclude Include="MapControler.h" />
     <ClInclude Include="Utills.h" />
   </ItemGroup>

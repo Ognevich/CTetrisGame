@@ -45,6 +45,9 @@
     <ClCompile Include="Figures.c">
       <Filter>Source Files\Engine\Figures</Filter>
     </ClCompile>
+    <ClCompile Include="keyboardDetector.c">
+      <Filter>Source Files\Utills</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MapControler.h">
@@ -64,6 +67,9 @@
     </ClInclude>
     <ClInclude Include="Config.h">
       <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="keyboardDetector.h">
+      <Filter>Source Files\Utills</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

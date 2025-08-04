@@ -3,7 +3,7 @@
 #include "Figures.h"
 #include <stdbool.h>
 #include "Config.h"
-
+#include "Utills.h"
 
 typedef struct {
 	int x;
@@ -12,11 +12,15 @@ typedef struct {
 
 extern Vector2 coordArray[OBJECT_SIZE][OBJECT_SIZE];
 
+
 bool checkFigureCollision(int X_coord, int Y_coord);
 
-void moveObject();
+void moveObjectDown();
+void moveObjectLeft();
+void moveObjectRight();
+void moveVectorPos();
 
-void MoveVectorPos();
+
 void setDafaultCoordPos();
 
 int getCurrentPosX();

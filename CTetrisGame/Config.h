@@ -7,11 +7,11 @@
 
 
 //UTILLS
-#define SLEEP_TIME 500
+#define SLEEP_TIME 200
 
 //OBJECTS
 #define START_POS_X (((MAP_WIDTH-1) / 2))
 #define START_POS_Y 1
-#define OBJECT_SIZE 3
+#define OBJECT_SIZE 4
 
 #endif

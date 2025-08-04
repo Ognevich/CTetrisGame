@@ -3,10 +3,14 @@
 #define APP_H
 #include "stdio.h"
 #include "MapControler.h"
+#include "keyboardDetector.h"
+#include <windows.h>
 
 void Run();
 void Init();
 void Update();
 void shutdown_app();
+
+void playerActionHandler();
 
 #endif

@@ -3,12 +3,22 @@
 static Vector2 objCurrentPos;
 Vector2 coordArray[OBJECT_SIZE][OBJECT_SIZE];
 
-void moveObject()
+void moveObjectDown()
 {
-	if (objCurrentPos.y < MAP_HEIGHT - 3) { objCurrentPos.y++; }
+	if (objCurrentPos.y < MAP_HEIGHT - 4) { objCurrentPos.y++; }
 }
 
-void MoveVectorPos()
+void moveObjectLeft()
+{
+	objCurrentPos.x--;
+}
+
+void moveObjectRight()
+{
+	objCurrentPos.x++;
+}
+
+void moveVectorPos()
 {
 	for (int i = 0; i < OBJECT_SIZE; i++) {
 		for (int j = 0; j < OBJECT_SIZE; j++) {

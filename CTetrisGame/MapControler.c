@@ -34,14 +34,14 @@ void addObject(int y_coord, int x_coord)
 	for (int i = 0; i < OBJECT_SIZE; i++) {
 		for (int j = 0; j < OBJECT_SIZE; j++) {
 
-			if (figureI[i][j] == '0') {
+			if (figureO[i][j] == '0') {
 				int mapY = y_coord + i;
 				int mapX = x_coord + j;
 
 				coordArray[i][j].x = mapX;
 				coordArray[i][j].y = mapY;
 
-				mapArr[mapY][mapX] = figureI[i][j];
+				mapArr[mapY][mapX] = figureO[i][j];
 			}
 		}
 	}
@@ -51,7 +51,7 @@ void addObject(int y_coord, int x_coord)
 
 void showMap()
 {
-	clearScreen();
+	clearGameScreen();
 	for (int i = 0; i < MAP_HEIGHT ; i++) {
 		for (int j = 0; j < MAP_WIDTH ; j++) {
 				printf("%c" ,mapArr[i][j]);

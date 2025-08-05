@@ -25,7 +25,7 @@ void Init()
 
 void Update()
 {
-    DWORD now = GetTickCount();
+    DWORD now = GetTickCount64();
 
     if (now - lastMoveTime >= 40) {
         playerActionHandler();

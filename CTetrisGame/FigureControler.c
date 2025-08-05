@@ -2,6 +2,7 @@
 
 static Vector2 objCurrentPos;
 Vector2 coordArray[OBJECT_SIZE][OBJECT_SIZE];
+char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE];
 
 void moveObjectDown()
 {
@@ -30,10 +31,72 @@ void moveVectorPos()
 
 void rotateObject()
 {
+	int** tempFigure = malloc(OBJECT_SIZE * sizeof(int*));
+	if (tempFigure == NULL) {
+		return;
+	}
 
-
-
+	for (int i = 0; i < OBJECT_SIZE; i++) {
+		tempFigure[i] = malloc(OBJECT_SIZE * sizeof(int));
+		if (tempFigure[i] == NULL) {
+			for (int j = 0; j < i; j++) {
+				free(tempFigure[j]);
+			}
+			free(tempFigure);
+			return;
+		}
+	}
+	for (int i = 0; i < OBJECT_SIZE; i++) {
+		for (int j = 0; j < OBJECT_SIZE; j++) {
+			tempFigure[j][OBJECT_SIZE - 1 - i] = tempFigureArr[i][j];
+		}
+	}
+	setNewRotateObject(tempFigure);
 }
+
+char** createTempFigureArr(const char** arrTemplate)
+{
+	char** tempFigureArr = malloc(OBJECT_SIZE * sizeof(char*));
+	if (!tempFigureArr) return NULL;
+
+	for (int i = 0; i < OBJECT_SIZE; i++) {
+		tempFigureArr[i] = malloc(OBJECT_SIZE * sizeof(char));
+		if (!tempFigureArr[i]) {
+			for (int k = 0; k < i; k++) free(tempFigureArr[k]);
+			free(tempFigureArr);
+			return NULL;
+		}
+
+		for (int j = 0; j < OBJECT_SIZE; j++) {
+			tempFigureArr[i][j] = arrTemplate[i][j];
+		}
+	}
+
+	return tempFigureArr;
+}
+
+void setNewRotateObject(char** rotateArr)
+{
+	for (int i = 0; i < OBJECT_SIZE; i++) {
+		for (int j = 0; j < OBJECT_SIZE; j++) {
+			tempFigureArr[i][j] = rotateArr[i][j];
+		}
+	}
+
+	clearDobuleCharArr(rotateArr);
+}
+
+void clearDobuleCharArr(char** rotateArr)
+{
+
+	for (int i = 0; i < OBJECT_SIZE; i++) {
+		free(rotateArr[i]);
+	}
+
+	free(rotateArr);
+}
+
+
 
 void setDafaultCoordPos()
 {

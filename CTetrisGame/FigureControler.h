@@ -22,6 +22,10 @@ void moveVectorPos();
 
 void rotateObject();
 
+char ** createTempFigureArr(const char arrTemplate);
+void setNewRotateObject(char** rotateArr);
+void clearDobuleCharArr(char** rotateArr);
+
 void setDafaultCoordPos();
 
 int getCurrentPosX();

@@ -20,6 +20,7 @@ void moveObjectLeft();
 void moveObjectRight();
 void moveVectorPos();
 
+void rotateObject();
 
 void setDafaultCoordPos();
 

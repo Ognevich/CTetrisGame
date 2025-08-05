@@ -23,8 +23,8 @@ const char figureS[OBJECT_SIZE][OBJECT_SIZE] = {
 };
 
 const char figureZ[OBJECT_SIZE][OBJECT_SIZE] = {
-    {'0', '0', ' ', ' '},
     {' ', '0', '0', ' '},
+    {' ', ' ', '0', '0'},
     {' ', ' ', ' ', ' '},
     {' ', ' ', ' ', ' '}
 };
@@ -37,9 +37,9 @@ const char figureL[OBJECT_SIZE][OBJECT_SIZE] = {
 };
 
 const char figureJ[OBJECT_SIZE][OBJECT_SIZE] = {
-    {' ', ' ', '0', ' '},
-    {' ', ' ', '0', ' '},
-    {' ', '0', '0', ' '},
+    {' ', ' ', ' ', '0'},
+    {' ', ' ', ' ', '0'},
+    {' ', ' ', '0', '0'},
     {' ', ' ', ' ', ' '}
 };
 

@@ -1,7 +1,7 @@
 #include "App.h"
 
-DWORD lastMoveTime = 0;
-DWORD lastFallTime = 0;
+static DWORD lastMoveTime = 0;
+static DWORD lastFallTime = 0;
 
 void Run()
 {
@@ -59,6 +59,10 @@ void playerActionHandler()
         moveObjectRight();
         break;
     case UP_ARR:
+        break;
+    case DOWN_ARR:
+        break;
+    case NONE:
         break;
     default:
         break;

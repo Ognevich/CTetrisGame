@@ -11,6 +11,7 @@ keyPressed keyDetection()
             case 72: return UP_ARR;
             case 75: return LEFT_ARR;
             case 77: return RIGHT_ARR;
+            case 80: return DOWN_ARR;
             }
         }
     }

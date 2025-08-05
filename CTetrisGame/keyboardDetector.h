@@ -4,7 +4,7 @@
 #include "Config.h"
 #include "Utills.h"
 
-typedef enum { LEFT_ARR, RIGHT_ARR, UP_ARR, NONE}keyPressed;
+typedef enum { LEFT_ARR, RIGHT_ARR, UP_ARR, DOWN_ARR, NONE}keyPressed;
 
 keyPressed keyDetection();
 

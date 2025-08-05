@@ -28,6 +28,13 @@ void moveVectorPos()
 	}
 }
 
+void rotateObject()
+{
+
+
+
+}
+
 void setDafaultCoordPos()
 {
 	objCurrentPos.x = START_POS_X;

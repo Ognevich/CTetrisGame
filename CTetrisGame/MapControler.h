@@ -19,6 +19,7 @@ void addBorders(int x_coord, int y_coord);
 void addObject(int x_coord, int y_coord);
 
 int checkMapCollision(int height, int width);
+int checkGroundCollision();
 
 void initMapArray();
 void freeMapArray();

@@ -80,6 +80,20 @@ int checkMapCollision(int height, int width)
 	return 0;
 }
 
+int checkGroundCollision()
+{
+	int coordY = findMaxArrayXCoord(tempFigureArr);
+
+	int xPos = getCurrentPosX();
+	int yPos = getCurrentPosY() + coordY;
+
+	if (mapArr[yPos+1][xPos] == '#') {
+		return 1;
+	}
+	return 0;
+}
+
+
 void initMapArray()
 {
 	char** temp = malloc(sizeof(char*) * MAP_HEIGHT);

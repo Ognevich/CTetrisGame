@@ -16,4 +16,4 @@ void clearGameScreen() {
 }
 void wait(int sleepTime) {
 	Sleep(sleepTime);
-};
+}

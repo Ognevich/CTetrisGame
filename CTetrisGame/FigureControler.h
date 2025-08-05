@@ -38,8 +38,6 @@ void getRandomFigure();
 int getCoordVectorValueX(int coordX, int coordY);
 int getCoordVectorValueY(int coordX, int coordY);
 
-//COLLISIONS
 
-int checkGroundCollision();
-
+int findMaxArrayXCoord(char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE]);
 #endif

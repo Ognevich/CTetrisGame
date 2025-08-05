@@ -37,7 +37,7 @@ void resetObject()
 
 void rotateObject()
 {
-	int** tempFigure = malloc(OBJECT_SIZE * sizeof(int*));
+	char** tempFigure = malloc(OBJECT_SIZE * sizeof(int*));
 	if (tempFigure == NULL) {
 		return;
 	}
@@ -124,11 +124,19 @@ void getRandomFigure()
 int getCoordVectorValueX(int coordX, int coordY) { return coordArray[coordX][coordY].x; }
 int getCoordVectorValueY(int coordX, int coordY) { return coordArray[coordX][coordY].y; }
 
-int checkGroundCollision()
-{
-	if (objCurrentPos.y == MAP_HEIGHT - 3) {
-		return 1;
-	}
-	return 0;
-}
 
+int findMaxArrayXCoord(char currentFigure[OBJECT_SIZE][OBJECT_SIZE])
+{
+	int coordY = 0;
+
+	for (int i = 0; i < OBJECT_SIZE; i++) {
+		for (int j = 0; j < OBJECT_SIZE; j++) {
+			if (currentFigure[i][j] == '0') {
+				if (i > coordY) {
+					coordY = i;
+				}
+			}
+		}
+	}
+	return coordY;
+}

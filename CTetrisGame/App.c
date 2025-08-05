@@ -67,6 +67,7 @@ void playerActionHandler()
         moveObjectRight();
         break;
     case UP_ARR:
+        rotateObject();
         break;
     case DOWN_ARR:
         break;

@@ -6,7 +6,7 @@ char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE];
 
 void moveObjectDown()
 {
-	if (objCurrentPos.y < MAP_HEIGHT - 4) { objCurrentPos.y++; }
+	objCurrentPos.y++;
 }
 
 void moveObjectLeft()
@@ -27,6 +27,12 @@ void moveVectorPos()
 			coordArray[i][j].y = i + objCurrentPos.y;
 		}
 	}
+}
+
+void resetObject()
+{
+	setDafaultCoordPos();
+	getRandomFigure();
 }
 
 void rotateObject()
@@ -52,27 +58,6 @@ void rotateObject()
 		}
 	}
 	setNewRotateObject(tempFigure);
-}
-
-char** createTempFigureArr(const char** arrTemplate)
-{
-	char** tempFigureArr = malloc(OBJECT_SIZE * sizeof(char*));
-	if (!tempFigureArr) return NULL;
-
-	for (int i = 0; i < OBJECT_SIZE; i++) {
-		tempFigureArr[i] = malloc(OBJECT_SIZE * sizeof(char));
-		if (!tempFigureArr[i]) {
-			for (int k = 0; k < i; k++) free(tempFigureArr[k]);
-			free(tempFigureArr);
-			return NULL;
-		}
-
-		for (int j = 0; j < OBJECT_SIZE; j++) {
-			tempFigureArr[i][j] = arrTemplate[i][j];
-		}
-	}
-
-	return tempFigureArr;
 }
 
 void setNewRotateObject(char** rotateArr)
@@ -121,12 +106,29 @@ bool checkFigureCollision(int X_coord, int Y_coord)
 int getCurrentPosX() { return objCurrentPos.x; }
 int getCurrentPosY() { return objCurrentPos.y; }
 
-const char (*getRandomFigure())[OBJECT_SIZE]
+void setCoordPosX(int coordX) { objCurrentPos.x = coordX; }
+
+void setCoordPosY(int coordY) { objCurrentPos.y = coordY; }
+
+void getRandomFigure()
 {
 	int index = rand() % 7;
-	return figures_arr[index];
+
+	for (int i = 0; i < OBJECT_SIZE; i++) {
+		for (int j = 0; j < OBJECT_SIZE; j++) {
+			 tempFigureArr[i][j] = figures_arr[index][i][j];
+		}
+	}
 }
 
 int getCoordVectorValueX(int coordX, int coordY) { return coordArray[coordX][coordY].x; }
 int getCoordVectorValueY(int coordX, int coordY) { return coordArray[coordX][coordY].y; }
+
+int checkGroundCollision()
+{
+	if (objCurrentPos.y == MAP_HEIGHT - 3) {
+		return 1;
+	}
+	return 0;
+}
 

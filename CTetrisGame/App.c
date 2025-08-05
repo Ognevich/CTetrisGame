@@ -18,7 +18,7 @@ void Run()
 void Init()
 {
     initMapArray();
-    setDafaultCoordPos();
+    resetObject();
     moveVectorPos();
     createMap();
 }
@@ -33,7 +33,15 @@ void Update()
     }
 
     if (now - lastFallTime >= 400) {
-        moveObjectDown();
+        int value = checkGroundCollision();
+        if (value == 0) {
+            moveObjectDown();
+        }
+        else {
+            Sleep(500);
+            resetObject();
+        }
+        
         lastFallTime = now;
     }
 

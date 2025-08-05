@@ -34,14 +34,14 @@ void addObject(int y_coord, int x_coord)
 	for (int i = 0; i < OBJECT_SIZE; i++) {
 		for (int j = 0; j < OBJECT_SIZE; j++) {
 
-			if (figureO[i][j] == '0') {
+			if (tempFigureArr[i][j] == '0') {
 				int mapY = y_coord + i;
 				int mapX = x_coord + j;
 
 				coordArray[i][j].x = mapX;
 				coordArray[i][j].y = mapY;
 
-				mapArr[mapY][mapX] = figureO[i][j];
+				mapArr[mapY][mapX] = tempFigureArr[i][j];
 			}
 		}
 	}

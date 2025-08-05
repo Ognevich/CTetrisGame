@@ -1,4 +1,6 @@
-﻿  FigureControler.c
-D:\my_projects\C\CTetrisGame\CTetrisGame\FigureControler.c(54,21): warning C4133: 'function': incompatible types - from 'int **' to 'char **'
-D:\my_projects\C\CTetrisGame\CTetrisGame\FigureControler.c(57,41): warning C4028: formal parameter 1 different from declaration
+﻿  App.c
+D:\my_projects\C\CTetrisGame\CTetrisGame\App.c(28,17): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+  FigureControler.c
+D:\my_projects\C\CTetrisGame\CTetrisGame\FigureControler.c(60,21): warning C4133: 'function': incompatible types - from 'int **' to 'char **'
+  Generating Code...
   CTetrisGame.vcxproj -> D:\my_projects\C\CTetrisGame\x64\Debug\CTetrisGame.exe

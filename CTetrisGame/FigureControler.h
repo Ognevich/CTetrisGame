@@ -11,7 +11,7 @@ typedef struct {
 }Vector2;
 
 extern Vector2 coordArray[OBJECT_SIZE][OBJECT_SIZE];
-
+extern char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE];
 
 bool checkFigureCollision(int X_coord, int Y_coord);
 
@@ -20,9 +20,9 @@ void moveObjectLeft();
 void moveObjectRight();
 void moveVectorPos();
 
+void resetObject();
 void rotateObject();
 
-char ** createTempFigureArr(const char arrTemplate);
 void setNewRotateObject(char** rotateArr);
 void clearDobuleCharArr(char** rotateArr);
 
@@ -30,9 +30,16 @@ void setDafaultCoordPos();
 
 int getCurrentPosX();
 int getCurrentPosY();
-const char (*getRandomFigure())[OBJECT_SIZE];
+void setCoordPosX(int coordX);
+void setCoordPosY(int coordY);
+
+void getRandomFigure();
 
 int getCoordVectorValueX(int coordX, int coordY);
 int getCoordVectorValueY(int coordX, int coordY);
+
+//COLLISIONS
+
+int checkGroundCollision();
 
 #endif

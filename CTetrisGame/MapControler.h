@@ -6,21 +6,15 @@
 #include "Config.h"
 #include "Utills.h"
 
+void updateMap(GameState * state);
+void showMap(GameState* state);
+void clearMap(GameState* state);
 
-extern char** mapArr;
-extern size_t arraySize;
-
-void createMap();
-void updateMap();
-void showMap();
-void clearMap();
-
-void addBorders(int x_coord, int y_coord);
-void addObject(int x_coord, int y_coord);
+void addObject(int x_coord, int y_coord, GameState* state);
 
 int checkMapCollision(int height, int width);
-int checkGroundCollision();
+int checkGroundCollision(GameState* state);
+int checkLeftWallCollision(GameState* state);
+int checkRightWallCollision(GameState* state);
 
-void initMapArray();
-void freeMapArray();
 #endif

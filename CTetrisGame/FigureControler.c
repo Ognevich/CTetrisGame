@@ -1,49 +1,46 @@
 #include "FigureControler.h"
 
-static Vector2 objCurrentPos;
-Vector2 coordArray[OBJECT_SIZE][OBJECT_SIZE];
-char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE];
-
-void moveObjectDown()
+void moveObjectDown(GameState* state)
 {
-	objCurrentPos.y++;
+	state->objCurrentPos.y++;
 }
 
-void moveObjectLeft()
+void moveObjectLeft(GameState* state)
 {
-	objCurrentPos.x--;
+	state->objCurrentPos.x--;
 }
 
-void moveObjectRight()
+void moveObjectRight(GameState* state)
 {
-	objCurrentPos.x++;
+	state->objCurrentPos.x++;
 }
 
-void moveVectorPos()
+void moveVectorPos(GameState* state)
 {
 	for (int i = 0; i < OBJECT_SIZE; i++) {
 		for (int j = 0; j < OBJECT_SIZE; j++) {
-			coordArray[i][j].x = j + objCurrentPos.x;
-			coordArray[i][j].y = i + objCurrentPos.y;
+			state->coordArray[i][j].x = j + state->objCurrentPos.x;
+			state->coordArray[i][j].y = i + state->objCurrentPos.y;
 		}
 	}
 }
 
-void resetObject()
+void resetObject(GameState * state)
 {
-	setDafaultCoordPos();
-	getRandomFigure();
+	state->objCurrentPos.x = START_POS_X;
+	state->objCurrentPos.y = START_POS_Y;
+	getRandomFigure(state);
 }
 
-void rotateObject()
+void rotateObject(GameState* state)
 {
-	char** tempFigure = malloc(OBJECT_SIZE * sizeof(int*));
+	char** tempFigure = malloc(OBJECT_SIZE * sizeof(char*));
 	if (tempFigure == NULL) {
 		return;
 	}
 
 	for (int i = 0; i < OBJECT_SIZE; i++) {
-		tempFigure[i] = malloc(OBJECT_SIZE * sizeof(int));
+		tempFigure[i] = malloc(OBJECT_SIZE * sizeof(char));
 		if (tempFigure[i] == NULL) {
 			for (int j = 0; j < i; j++) {
 				free(tempFigure[j]);
@@ -54,24 +51,24 @@ void rotateObject()
 	}
 	for (int i = 0; i < OBJECT_SIZE; i++) {
 		for (int j = 0; j < OBJECT_SIZE; j++) {
-			tempFigure[j][OBJECT_SIZE - 1 - i] = tempFigureArr[i][j];
+			tempFigure[j][OBJECT_SIZE - 1 - i] = state->tempFigureArr[i][j];
 		}
 	}
-	setNewRotateObject(tempFigure);
+	setNewRotateObject(tempFigure, state);
 }
 
-void setNewRotateObject(char** rotateArr)
+void setNewRotateObject(char** rotateArr, GameState* state)
 {
 	for (int i = 0; i < OBJECT_SIZE; i++) {
 		for (int j = 0; j < OBJECT_SIZE; j++) {
-			tempFigureArr[i][j] = rotateArr[i][j];
+			state->tempFigureArr[i][j] = rotateArr[i][j];
 		}
 	}
 
-	clearDobuleCharArr(rotateArr);
+	clearDoubleCharArr(rotateArr);
 }
 
-void clearDobuleCharArr(char** rotateArr)
+void clearDoubleCharArr(char** rotateArr)
 {
 
 	for (int i = 0; i < OBJECT_SIZE; i++) {
@@ -81,62 +78,23 @@ void clearDobuleCharArr(char** rotateArr)
 	free(rotateArr);
 }
 
+int getCurrentPosX(GameState* state) { return state->objCurrentPos.x; }
+int getCurrentPosY(GameState* state) { return state->objCurrentPos.y; }
 
+void setCoordPosX(int coordX, GameState* state) { state->objCurrentPos.x = coordX; }
 
-void setDafaultCoordPos()
-{
-	objCurrentPos.x = START_POS_X;
-	objCurrentPos.y = START_POS_Y;
-}
+void setCoordPosY(int coordY, GameState* state) { state->objCurrentPos.y = coordY; }
 
-
-bool checkFigureCollision(int X_coord, int Y_coord)
-{
-	for (int i = 0; i < OBJECT_SIZE; i++) {
-		for (int j = 0; j < OBJECT_SIZE; j++) {
-			if (X_coord == getCoordVectorValueX(i,j) && Y_coord == getCoordVectorValueY(i,j)) {
-				return true;
-				break;
-			}
-		}
-	}
-	return false;
-}
-
-int getCurrentPosX() { return objCurrentPos.x; }
-int getCurrentPosY() { return objCurrentPos.y; }
-
-void setCoordPosX(int coordX) { objCurrentPos.x = coordX; }
-
-void setCoordPosY(int coordY) { objCurrentPos.y = coordY; }
-
-void getRandomFigure()
+void getRandomFigure(GameState* state)
 {
 	int index = rand() % 7;
 
 	for (int i = 0; i < OBJECT_SIZE; i++) {
 		for (int j = 0; j < OBJECT_SIZE; j++) {
-			 tempFigureArr[i][j] = figures_arr[index][i][j];
+			 state->tempFigureArr[i][j] = figures_arr[index][i][j];
 		}
 	}
 }
 
-int getCoordVectorValueX(int coordX, int coordY) { return coordArray[coordX][coordY].x; }
-int getCoordVectorValueY(int coordX, int coordY) { return coordArray[coordX][coordY].y; }
-
-
-int findMaxArrayXCoord(char currentFigure[OBJECT_SIZE][OBJECT_SIZE])
-{
-	int coordY = 0;
-
-	for (int i = 0; i < OBJECT_SIZE; i++) {
-		for (int j = 0; j < OBJECT_SIZE; j++) {
-			if (currentFigure[i][j] == '0') {
-				if (i > coordY) {
-					coordY = i;
-				}
-			}
-		}
-	}
-	return coordY;
-}
+int getCoordVectorValueX(int coordX, int coordY, GameState* state) { return state->coordArray[coordX][coordY].x; }
+int getCoordVectorValueY(int coordX, int coordY, GameState* state) { return state->coordArray[coordX][coordY].y; }

@@ -1,47 +1,24 @@
 #include "MapControler.h"
 
-char** mapArr = NULL;
-size_t arraySize;
-
-
-void createMap()
+void updateMap(GameState* state)
 {
-	for (int i = 0; i < MAP_HEIGHT; i++) {
-		for (int j = 0; j < MAP_WIDTH; j++) {
-			addBorders(i, j);
-		}
-	}
+	clearMap(state);
+	addObject(getCurrentPosY(state), getCurrentPosX(state),state);
 }
 
-void updateMap()
-{
-	clearMap();
-	addObject(getCurrentPosY(), getCurrentPosX());
-}
-
-void addBorders(int x_coord, int y_coord)
-{
-	if (checkMapCollision(x_coord, y_coord) == 1) {
-		mapArr[x_coord][y_coord] = '#';
-	}
-	else {
-		mapArr[x_coord][y_coord] = ' ';
-	}
-}
-
-void addObject(int y_coord, int x_coord)
+void addObject(int y_coord, int x_coord, GameState* state)
 {
 	for (int i = 0; i < OBJECT_SIZE; i++) {
 		for (int j = 0; j < OBJECT_SIZE; j++) {
 
-			if (tempFigureArr[i][j] == '0') {
+			if (state->tempFigureArr[i][j] == '0') {
 				int mapY = y_coord + i;
 				int mapX = x_coord + j;
 
-				coordArray[i][j].x = mapX;
-				coordArray[i][j].y = mapY;
+				state->coordArray[i][j].x = mapX;
+				state->coordArray[i][j].y = mapY;
 
-				mapArr[mapY][mapX] = tempFigureArr[i][j];
+				state->mapArr[mapY][mapX] = state->tempFigureArr[i][j];
 			}
 		}
 	}
@@ -49,24 +26,24 @@ void addObject(int y_coord, int x_coord)
 
 
 
-void showMap()
+void showMap(GameState* state)
 {
 	clearGameScreen();
 	for (int i = 0; i < MAP_HEIGHT ; i++) {
 		for (int j = 0; j < MAP_WIDTH ; j++) {
-				printf("%c" ,mapArr[i][j]);
+				printf("%c" ,state->mapArr[i][j]);
 		}
 		printf("\n");
 	}
 
 }
 
-void clearMap()
+void clearMap(GameState* state)
 {
 	for (int i = 0; i < MAP_HEIGHT; i++) {
 		for (int j = 0; j < MAP_WIDTH; j++) {
 			if (!checkMapCollision(i, j)) {
-				mapArr[i][j] = ' ';
+				state->mapArr[i][j] = ' ';
 			}
 		}
 	}
@@ -80,56 +57,37 @@ int checkMapCollision(int height, int width)
 	return 0;
 }
 
-int checkGroundCollision()
+int checkGroundCollision(GameState* state)
 {
-	int coordY = findMaxArrayXCoord(tempFigureArr);
+	int coordY = findMaxArrayYCoord(state->tempFigureArr);
 
-	int xPos = getCurrentPosX();
-	int yPos = getCurrentPosY() + coordY;
+	int xPos = getCurrentPosX(state);
+	int yPos = getCurrentPosY(state) + coordY;
 
-	if (mapArr[yPos+1][xPos] == '#') {
+	if (state->mapArr[yPos+1][xPos] == '#') {
 		return 1;
 	}
 	return 0;
 }
 
-
-void initMapArray()
+int checkLeftWallCollision(GameState* state)
 {
-	char** temp = malloc(sizeof(char*) * MAP_HEIGHT);
+	int yPos = getCurrentPosY(state);
+	int xMinPos = getCurrentPosX(state);
 
-	if (temp == NULL) {
-		printf("memory init error");
-		return;
+	if (state->mapArr[yPos][xMinPos - 1] == '#') {
+		return 1; 
 	}
-
-	for (int i = 0; i < MAP_HEIGHT; i++) {
-		temp[i] = malloc(sizeof(char) * MAP_WIDTH);
-		if (temp[i] == NULL) {
-			printf("memory init error");
-			for (int j = 0; j < i; j++) {
-				free(temp[j]);
-			}
-			free(temp);
-
-			return;
-		}
-	}
-
-	mapArr = temp;
+	return 0;
 }
 
-void freeMapArray(){
+int checkRightWallCollision(GameState* state)
+{
+	int yPos = getCurrentPosY(state);
+	int maxCoordX = findMaxArrayXCoord(state->tempFigureArr) + getCurrentPosX(state);
 
-	if (mapArr == NULL) {
-		return;
+	if (state->mapArr[yPos][maxCoordX + 1] == '#') {
+		return 1; 
 	}
-
-	for (int i = 0; i < MAP_HEIGHT; i++) {
-		free(mapArr[i]);
-	}
-
-	free(mapArr);
-	mapArr = NULL;
-
+	return 0;
 }

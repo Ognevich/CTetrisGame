@@ -6,9 +6,11 @@
 int main() {
 	srand(time(NULL));
 
-	Init();
-	Run();
-	shutdown_app();
+	GameState game;
+
+	Init(&game);
+	Run(&game);
+	shutdown_app(&game);
 
 	return 0;
 }

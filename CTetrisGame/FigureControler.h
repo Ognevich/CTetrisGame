@@ -1,43 +1,29 @@
 #ifndef FIGURE_CONTROLER_H
 #define FIGURE_CONTROLER_H
 #include "Figures.h"
-#include <stdbool.h>
 #include "Config.h"
 #include "Utills.h"
+#include "GameState.h"
 
-typedef struct {
-	int x;
-	int y;
-}Vector2;
+void moveObjectDown(GameState * state);
+void moveObjectLeft(GameState* state);
+void moveObjectRight(GameState* state);
+void moveVectorPos(GameState* state);
 
-extern Vector2 coordArray[OBJECT_SIZE][OBJECT_SIZE];
-extern char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE];
+void resetObject(GameState* state);
+void rotateObject(GameState* state);
 
-bool checkFigureCollision(int X_coord, int Y_coord);
+void setNewRotateObject(char** rotateArr, GameState* state);
+void clearDoubleCharArr(char** rotateArr);
 
-void moveObjectDown();
-void moveObjectLeft();
-void moveObjectRight();
-void moveVectorPos();
+int getCurrentPosX(GameState* state);
+int getCurrentPosY(GameState* state);
+void setCoordPosX(int coordX, GameState* state);
+void setCoordPosY(int coordY, GameState* state);
 
-void resetObject();
-void rotateObject();
+void getRandomFigure(GameState* state);
 
-void setNewRotateObject(char** rotateArr);
-void clearDobuleCharArr(char** rotateArr);
+int getCoordVectorValueX(int coordX, int coordY, GameState* state);
+int getCoordVectorValueY(int coordX, int coordY, GameState* state);
 
-void setDafaultCoordPos();
-
-int getCurrentPosX();
-int getCurrentPosY();
-void setCoordPosX(int coordX);
-void setCoordPosY(int coordY);
-
-void getRandomFigure();
-
-int getCoordVectorValueX(int coordX, int coordY);
-int getCoordVectorValueY(int coordX, int coordY);
-
-
-int findMaxArrayXCoord(char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE]);
 #endif

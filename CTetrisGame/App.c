@@ -3,71 +3,66 @@
 static DWORD lastMoveTime = 0;
 static DWORD lastFallTime = 0;
 
-void Run()
+void Run(GameState* state)
 {
-    Init();
-
     while (1) {
-        Update();
+        Update(state);
         Sleep(1); 
     }
-
-    shutdown_app();
 }
 
-void Init()
+void Init(GameState* state)
 {
-    initMapArray();
-    resetObject();
-    moveVectorPos();
-    createMap();
+    InitGameState(state);
+    resetObject(state);
+    moveVectorPos(state);
 }
 
-void Update()
+void Update(GameState* state)
 {
     DWORD now = GetTickCount64();
 
     if (now - lastMoveTime >= 40) {
-        playerActionHandler();
+        playerActionHandler(state);
         lastMoveTime = now;
     }
 
     if (now - lastFallTime >= 400) {
-        int value = checkGroundCollision();
+        int value = checkGroundCollision(state);
         if (value == 0) {
-            moveObjectDown();
+            moveObjectDown(state);
         }
         else {
             Sleep(500);
-            resetObject();
+            resetObject(state);
         }
         
         lastFallTime = now;
     }
 
-    updateMap();
-    showMap();
+    updateMap(state);
+    showMap(state);
     clearGameScreen();
 }
 
-void shutdown_app() {
-    freeMapArray();
+void shutdown_app(GameState* state) {
+    clearGameState(state);
 }
 
-void playerActionHandler()
+void playerActionHandler(GameState* state)
 {
     keyPressed keyValue = keyDetection();
 
     switch (keyValue)
     {
     case LEFT_ARR:
-        moveObjectLeft();
+        handleLeftMovement(state);
         break;
     case RIGHT_ARR:
-        moveObjectRight();
+        handleRightMovement(state);
         break;
     case UP_ARR:
-        rotateObject();
+        rotateObject(state);
         break;
     case DOWN_ARR:
         break;
@@ -76,4 +71,22 @@ void playerActionHandler()
     default:
         break;
     }
+}
+
+void handleLeftMovement(GameState* state)
+{
+    int isLeftCollision = checkLeftWallCollision(state);
+    if (isLeftCollision == 0) {
+        moveObjectLeft(state);
+    }
+}
+
+void handleRightMovement(GameState* state)
+{
+    int isRightCollision = checkRightWallCollision(state);
+
+    if (isRightCollision== 0) {
+        moveObjectRight(state);
+    }
+
 }

@@ -126,6 +126,7 @@
     <ClCompile Include="App.c" />
     <ClCompile Include="FigureControler.c" />
     <ClCompile Include="Figures.c" />
+    <ClCompile Include="GameState.c" />
     <ClCompile Include="keyboardDetector.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="MapControler.c" />
@@ -136,9 +137,11 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="FigureControler.h" />
     <ClInclude Include="Figures.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="keyboardDetector.h" />
     <ClInclude Include="MapControler.h" />
     <ClInclude Include="Utills.h" />
+    <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

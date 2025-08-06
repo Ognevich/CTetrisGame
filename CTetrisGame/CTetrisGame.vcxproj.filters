@@ -25,13 +25,16 @@
     <Filter Include="Source Files\Engine\Figures">
       <UniqueIdentifier>{1da5040e-eb09-4768-b236-b7471e892568}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Core">
+      <UniqueIdentifier>{40755861-1559-4a40-86b3-a44d980dfc34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Map">
+      <UniqueIdentifier>{15ceedb9-f820-445d-b36d-f47a2f3c4128}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utills.c">
       <Filter>Source Files\Utills</Filter>
-    </ClCompile>
-    <ClCompile Include="MapControler.c">
-      <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Main.c">
       <Filter>Source Files\Src</Filter>
@@ -39,37 +42,49 @@
     <ClCompile Include="App.c">
       <Filter>Source Files\Src</Filter>
     </ClCompile>
-    <ClCompile Include="FigureControler.c">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Figures.c">
       <Filter>Source Files\Engine\Figures</Filter>
     </ClCompile>
     <ClCompile Include="keyboardDetector.c">
       <Filter>Source Files\Utills</Filter>
     </ClCompile>
+    <ClCompile Include="GameState.c">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="FigureControler.c">
+      <Filter>Source Files\Engine\Figures</Filter>
+    </ClCompile>
+    <ClCompile Include="MapControler.c">
+      <Filter>Source Files\Engine\Map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MapControler.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Utills.h">
       <Filter>Source Files\Utills</Filter>
     </ClInclude>
     <ClInclude Include="App.h">
       <Filter>Source Files\Src</Filter>
     </ClInclude>
-    <ClInclude Include="FigureControler.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Figures.h">
       <Filter>Source Files\Engine\Figures</Filter>
     </ClInclude>
-    <ClInclude Include="Config.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="keyboardDetector.h">
       <Filter>Source Files\Utills</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="FigureControler.h">
+      <Filter>Source Files\Engine\Figures</Filter>
+    </ClInclude>
+    <ClInclude Include="MapControler.h">
+      <Filter>Source Files\Engine\Map</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

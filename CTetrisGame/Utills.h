@@ -7,6 +7,10 @@
 void clearGameScreen();
 void wait(int sleepTime);
 
+
+int findMaxArrayYCoord(char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE]);
+int findMaxArrayXCoord(char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE]);
+
 #endif
 
 

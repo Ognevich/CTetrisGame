@@ -4,13 +4,17 @@
 #include "stdio.h"
 #include "MapControler.h"
 #include "keyboardDetector.h"
+#include "GameState.h"
 #include <windows.h>
 
-void Run();
-void Init();
-void Update();
-void shutdown_app();
+void Run(GameState* state);
+void Init(GameState* state);
+void Update(GameState* state);
+void shutdown_app(GameState* state);
 
-void playerActionHandler();
+void playerActionHandler(GameState* state);
+
+void handleLeftMovement(GameState* state);
+void handleRightMovement(GameState* state);
 
 #endif

@@ -34,48 +34,75 @@ void resetObject(GameState * state)
 
 void rotateObject(GameState* state)
 {
-	char** tempFigure = malloc(OBJECT_SIZE * sizeof(char*));
-	if (tempFigure == NULL) {
-		return;
-	}
+    char** tempFigure = createDoubleCharArr();
+    if (!tempFigure) return;
 
-	for (int i = 0; i < OBJECT_SIZE; i++) {
-		tempFigure[i] = malloc(OBJECT_SIZE * sizeof(char));
-		if (tempFigure[i] == NULL) {
-			for (int j = 0; j < i; j++) {
-				free(tempFigure[j]);
-			}
-			free(tempFigure);
-			return;
-		}
-	}
-	for (int i = 0; i < OBJECT_SIZE; i++) {
-		for (int j = 0; j < OBJECT_SIZE; j++) {
-			tempFigure[j][OBJECT_SIZE - 1 - i] = state->tempFigureArr[i][j];
-		}
-	}
-	setNewRotateObject(tempFigure, state);
+    for (int i = 0; i < OBJECT_SIZE; i++) {
+        for (int j = 0; j < OBJECT_SIZE; j++) {
+            tempFigure[j][OBJECT_SIZE - 1 - i] = state->tempFigureArr[i][j];
+        }
+    }
+
+    if (isValidRotation(state, tempFigure)) {
+        for (int i = 0; i < OBJECT_SIZE; i++) {
+            for (int j = 0; j < OBJECT_SIZE; j++) {
+                state->tempFigureArr[i][j] = tempFigure[i][j];
+            }
+        }
+    }
+
+    clearDoubleCharArr(tempFigure);
 }
 
-void setNewRotateObject(char** rotateArr, GameState* state)
+int isValidRotation(GameState* state, char** rotatedFigure)
 {
-	for (int i = 0; i < OBJECT_SIZE; i++) {
-		for (int j = 0; j < OBJECT_SIZE; j++) {
-			state->tempFigureArr[i][j] = rotateArr[i][j];
-		}
-	}
+    int posX = state->objCurrentPos.x;
+    int posY = state->objCurrentPos.y;
 
-	clearDoubleCharArr(rotateArr);
+    for (int i = 0; i < OBJECT_SIZE; i++) {
+        for (int j = 0; j < OBJECT_SIZE; j++) {
+            if (rotatedFigure[i][j] != ' ') {
+                int mapY = posY + i;
+                int mapX = posX + j;
+
+                if (mapY < 0 || mapY >= MAP_HEIGHT || mapX < 0 || mapX >= MAP_WIDTH)
+                    return 0;
+                if (state->mapArr[mapY][mapX] == '#')
+                    return 0;
+            }
+        }
+    }
+    return 1;
+}
+
+char** createDoubleCharArr()
+{
+    char** tempFigure = malloc(OBJECT_SIZE * sizeof(char*));
+    if (!tempFigure) return NULL;
+
+    for (int i = 0; i < OBJECT_SIZE; i++) {
+        tempFigure[i] = malloc(OBJECT_SIZE * sizeof(char));
+        if (!tempFigure[i]) {
+            for (int j = 0; j < i; j++)
+                free(tempFigure[j]);
+            free(tempFigure);
+            return NULL;
+        }
+
+        for (int j = 0; j < OBJECT_SIZE; j++)
+            tempFigure[i][j] = ' ';
+    }
+
+    return tempFigure;
 }
 
 void clearDoubleCharArr(char** rotateArr)
 {
+    for (int i = 0; i < OBJECT_SIZE; i++) {
+        free(rotateArr[i]);
+    }
 
-	for (int i = 0; i < OBJECT_SIZE; i++) {
-		free(rotateArr[i]);
-	}
-
-	free(rotateArr);
+    free(rotateArr);
 }
 
 int getCurrentPosX(GameState* state) { return state->objCurrentPos.x; }

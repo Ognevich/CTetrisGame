@@ -64,7 +64,7 @@ int checkGroundCollision(GameState* state)
 	int xPos = getCurrentPosX(state);
 	int yPos = getCurrentPosY(state) + coordY;
 
-	if (state->mapArr[yPos+1][xPos] == '#') {
+	if (yPos + 2 == MAP_HEIGHT) {
 		return 1;
 	}
 	return 0;
@@ -72,11 +72,19 @@ int checkGroundCollision(GameState* state)
 
 int checkLeftWallCollision(GameState* state)
 {
-	int yPos = getCurrentPosY(state);
-	int xMinPos = getCurrentPosX(state);
+	for (int i = 0; i < OBJECT_SIZE; i++) {
+		for (int j = 0; j < OBJECT_SIZE; j++) {
+			if (state->tempFigureArr[i][j] != ' ') {
+				int mapY = state->objCurrentPos.y + i;
+				int mapX = state->objCurrentPos.x + j;
 
-	if (state->mapArr[yPos][xMinPos - 1] == '#') {
-		return 1; 
+				if (mapX - 1 < 0) 
+					return 1;
+
+				if (state->mapArr[mapY][mapX - 1] == '#')  
+					return 1;
+			}
+		}
 	}
 	return 0;
 }

@@ -12,9 +12,11 @@ void moveVectorPos(GameState* state);
 
 void resetObject(GameState* state);
 void rotateObject(GameState* state);
+int isValidRotation(GameState* state, char**rotatedFigure);
 
-void setNewRotateObject(char** rotateArr, GameState* state);
+char** createDoubleCharArr();
 void clearDoubleCharArr(char** rotateArr);
+
 
 int getCurrentPosX(GameState* state);
 int getCurrentPosY(GameState* state);

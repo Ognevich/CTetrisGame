@@ -15,7 +15,6 @@ void Init(GameState* state)
 {
     InitGameState(state);
     resetObject(state);
-    moveVectorPos(state);
 }
 
 void Update(GameState* state)
@@ -34,6 +33,7 @@ void Update(GameState* state)
         }
         else {
             Sleep(500);
+            addValuesToFilledObjectArr(state);
             resetObject(state);
         }
         

@@ -15,21 +15,12 @@ void moveObjectRight(GameState* state)
 	state->objCurrentPos.x++;
 }
 
-void moveVectorPos(GameState* state)
-{
-	for (int i = 0; i < OBJECT_SIZE; i++) {
-		for (int j = 0; j < OBJECT_SIZE; j++) {
-			state->coordArray[i][j].x = j + state->objCurrentPos.x;
-			state->coordArray[i][j].y = i + state->objCurrentPos.y;
-		}
-	}
-}
-
 void resetObject(GameState * state)
 {
-	state->objCurrentPos.x = START_POS_X;
-	state->objCurrentPos.y = START_POS_Y;
-	getRandomFigure(state);
+    state->objCurrentPos.x = START_POS_X;
+    state->objCurrentPos.y = START_POS_Y;
+    getRandomFigure(state);
+
 }
 
 void rotateObject(GameState* state)
@@ -123,5 +114,20 @@ void getRandomFigure(GameState* state)
 	}
 }
 
-int getCoordVectorValueX(int coordX, int coordY, GameState* state) { return state->coordArray[coordX][coordY].x; }
-int getCoordVectorValueY(int coordX, int coordY, GameState* state) { return state->coordArray[coordX][coordY].y; }
+
+void addValuesToFilledObjectArr(GameState* state)
+{
+    int posX = state->objCurrentPos.x;
+    int posY = state->objCurrentPos.y;
+
+    for (int i = 0; i < OBJECT_SIZE; i++) {
+        for (int j = 0; j < OBJECT_SIZE; j++) {
+            if (state->tempFigureArr[i][j] == '0') {
+                int mapY = posY + i;
+                int mapX = posX + j;
+
+                state->FilledObjectArr[mapY - 1][mapX - 1] = '0';
+            }
+        }
+    }
+}

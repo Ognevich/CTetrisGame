@@ -10,7 +10,6 @@ typedef struct {
     char** FilledObjectArr;
     Vector2 objCurrentPos;
     char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE];
-    Vector2 coordArray[OBJECT_SIZE][OBJECT_SIZE];
 }GameState;
 
 void InitGameState(GameState* state);

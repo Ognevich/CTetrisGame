@@ -8,7 +8,6 @@
 void moveObjectDown(GameState * state);
 void moveObjectLeft(GameState* state);
 void moveObjectRight(GameState* state);
-void moveVectorPos(GameState* state);
 
 void resetObject(GameState* state);
 void rotateObject(GameState* state);
@@ -25,7 +24,7 @@ void setCoordPosY(int coordY, GameState* state);
 
 void getRandomFigure(GameState* state);
 
-int getCoordVectorValueX(int coordX, int coordY, GameState* state);
-int getCoordVectorValueY(int coordX, int coordY, GameState* state);
+
+void addValuesToFilledObjectArr(GameState* state);
 
 #endif

@@ -53,21 +53,21 @@ void initFilledObjectArr(GameState* state)
 	}
 }
 
-void clearFailedState(char *** array, int index)
+void clearFailedState(char*** array, int index)
 {
 	for (int k = 0; k < index; k++) {
-		free(*array[k]);
+		free((*array)[k]);
 	}
 	free(*array);
 	*array = NULL;
 }
 
+
 void clearGameDoubleArray(char*** array, int height)
 {
 	for (int i = 0; i < height; i++) {
-		free(*array[i]);
+		free((*array)[i]);
 	}
-
 	free(*array);
 	*array = NULL;
 }

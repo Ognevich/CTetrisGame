@@ -63,7 +63,7 @@ int checkGroundCollision(GameState* state)
 	int xPos = getCurrentPosX(state);
 	int yPos = getCurrentPosY(state) + coordY;
 
-	if ((yPos + 2 == MAP_HEIGHT)||state->FilledObjectArr[yPos][xPos] == '0') {
+	if (yPos + 2 == MAP_HEIGHT) {
 		return 1;
 	}
 	return 0;

@@ -131,6 +131,7 @@
     <ClCompile Include="Main.c" />
     <ClCompile Include="MapControler.c" />
     <ClCompile Include="Utills.c" />
+    <ClCompile Include="Vector2.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />

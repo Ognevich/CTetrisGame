@@ -58,15 +58,20 @@ int checkMapCollision(int height, int width)
 
 int checkGroundCollision(GameState* state)
 {
-	int coordY = findMaxArrayYCoord(state->tempFigureArr);
+	int arrSize = 0;
+	Vector2 *coordVector = findAllArrayObjects(state->tempFigureArr, &arrSize);
 
-	int xPos = getCurrentPosX(state);
-	int yPos = getCurrentPosY(state) + coordY;
-
-	if (yPos + 2 == MAP_HEIGHT) {
-		return 1;
+	for (int i = 0; i < arrSize; i++) {
+		int currentY = coordVector[i].y + state->objCurrentPos.y;
+		int currentX = coordVector[i].x + state->objCurrentPos.x - 1;
+		if ((currentY == MAP_HEIGHT - 2) || (state->FilledObjectArr[currentY][currentX] == '0')) {
+			clearVector2Arr(&coordVector);
+			return 0;
+		}
 	}
-	return 0;
+
+	clearVector2Arr(&coordVector);
+	return 1;
 }
 
 int checkLeftWallCollision(GameState* state)

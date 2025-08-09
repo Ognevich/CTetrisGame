@@ -28,7 +28,7 @@ void Update(GameState* state)
 
     if (now - lastFallTime >= 400) {
         int value = checkGroundCollision(state);
-        if (value == 0) {
+        if (value == 1) {
             moveObjectDown(state);
         }
         else {

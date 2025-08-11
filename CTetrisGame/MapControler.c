@@ -140,3 +140,26 @@ int checkRightObjectCollision(GameState* state)
 
 	return 0;
 }
+
+void ClearFullLine(GameState* state)
+{
+	
+	for (int i = 0; i < OBJECT_MAP_HEIGHT; i++) {
+		int objectCounter = 0;
+		for (int j = 0; j < OBJECT_MAP_WIDTH; j++) {
+			if (state->FilledObjectArr[i][j] == '0') {
+				objectCounter++;
+			}
+			else { break; }
+		}
+		if (objectCounter == OBJECT_MAP_WIDTH) {
+			deleteLineObject(i);
+		}
+	}
+}
+
+void deleteLineObject(int coordY)
+{
+	printf("line %d deleted", coordY);
+	Sleep(1000);
+}

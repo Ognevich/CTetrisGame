@@ -37,6 +37,7 @@ void Update(GameState* state)
         else {
             Sleep(500);
             addValuesToFilledObjectArr(state);
+            ClearFullLine(state);
             resetObject(state);
         }
         lastFallTime = now;

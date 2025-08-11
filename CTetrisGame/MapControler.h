@@ -19,4 +19,7 @@ int checkRightWallCollision(GameState* state);
 int checkLeftObjectCollision(GameState* state);
 int checkRightObjectCollision(GameState* state);
 
+void ClearFullLine(GameState* state);
+void deleteLineObject(int coordY);
+
 #endif

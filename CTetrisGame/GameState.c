@@ -36,20 +36,18 @@ void initMapArr(GameState* state)
 
 void initFilledObjectArr(GameState* state)
 {
-	const int filledObjectHeight = MAP_HEIGHT - 2;
-	const int filledObjectWidth = MAP_WIDTH - 2;
 
-	state->FilledObjectArr = malloc(filledObjectHeight * sizeof(char*));
+	state->FilledObjectArr = malloc(OBJECT_MAP_HEIGHT * sizeof(char*));
 	if (state->FilledObjectArr == NULL) {
 		return;
 	}
-	for (int i = 0; i < filledObjectHeight; i++) {
-		state->FilledObjectArr[i] = malloc(filledObjectWidth * sizeof(char));
+	for (int i = 0; i < OBJECT_MAP_HEIGHT; i++) {
+		state->FilledObjectArr[i] = malloc(OBJECT_MAP_WIDTH* sizeof(char));
 		if (state->FilledObjectArr[i] == NULL) {
 			clearFailedState(&state->FilledObjectArr, i);
 			return;
 		}
-		for (int j = 0; j < filledObjectWidth; j++) {
+		for (int j = 0; j < OBJECT_MAP_WIDTH; j++) {
 			state->FilledObjectArr[i][j] = ' ';
 		}
 	}

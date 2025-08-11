@@ -1,11 +1,12 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 #include <stdio.h>
-//MAP
+//FULL MAP
 #define MAP_HEIGHT 20
 #define MAP_WIDTH 27
-
-
+//OBJECT MAP
+#define OBJECT_MAP_HEIGHT ((MAP_HEIGHT-2))
+#define OBJECT_MAP_WIDTH ((MAP_WIDTH-2))
 //UTILLS
 #define SLEEP_TIME 200
 

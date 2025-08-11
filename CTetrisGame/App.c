@@ -75,18 +75,19 @@ void playerActionHandler(GameState* state)
 
 void handleLeftMovement(GameState* state)
 {
-    int isLeftCollision = checkLeftWallCollision(state);
-    if (isLeftCollision == 0) {
-        moveObjectLeft(state);
+    if (checkLeftWallCollision(state) == 0) {
+        if (checkLeftObjectCollision(state) == 0) {
+            moveObjectLeft(state);
+        }
     }
 }
 
 void handleRightMovement(GameState* state)
 {
-    int isRightCollision = checkRightWallCollision(state);
-
-    if (isRightCollision== 0) {
-        moveObjectRight(state);
+    if (checkRightWallCollision(state) == 0) {
+        if (checkRightObjectCollision(state) == 0) {
+            moveObjectRight(state);
+        }
     }
 
 }

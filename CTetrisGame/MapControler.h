@@ -16,5 +16,7 @@ int checkMapCollision(int height, int width);
 int checkGroundCollision(GameState* state);
 int checkLeftWallCollision(GameState* state);
 int checkRightWallCollision(GameState* state);
+int checkLeftObjectCollision(GameState* state);
+int checkRightObjectCollision(GameState* state);
 
 #endif

@@ -3,7 +3,7 @@
 #include <stdio.h>
 //MAP
 #define MAP_HEIGHT 20
-#define MAP_WIDTH 41
+#define MAP_WIDTH 27
 
 
 //UTILLS

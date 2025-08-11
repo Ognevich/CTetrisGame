@@ -103,3 +103,40 @@ int checkRightWallCollision(GameState* state)
 	}
 	return 0;
 }
+
+int checkLeftObjectCollision(GameState* state)
+{
+	for (int i = 0; i < OBJECT_SIZE; i++) {
+		for (int j = 0; j < OBJECT_SIZE; j++) {
+			if (state->tempFigureArr[i][j] != ' ') {
+				int yPos = state->objCurrentPos.y + i-1;
+				int xPos = state->objCurrentPos.x + j-1;
+
+				if (state->FilledObjectArr[yPos][xPos-1] == '0') {
+					return 1;
+				}
+			}
+		}
+	}
+	return 0;
+}
+
+int checkRightObjectCollision(GameState* state)
+{
+	int maxCoordX = findMaxArrayXCoord(state->tempFigureArr) + getCurrentPosX(state) - 1;
+
+	for (int i = 0; i < OBJECT_SIZE; i++) {
+		for (int j = 0; j < OBJECT_SIZE; j++) {
+			if (state->tempFigureArr[i][j] != ' ') {
+				int yPos = state->objCurrentPos.y + i - 1;
+				int xPos = state->objCurrentPos.x + j ;
+
+				if (state->FilledObjectArr[yPos][xPos ] == '0') {
+					return 1;
+				}
+			}
+		}
+	}
+
+	return 0;
+}

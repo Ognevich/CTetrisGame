@@ -131,3 +131,13 @@ void addValuesToFilledObjectArr(GameState* state)
         }
     }
 }
+
+void resetFallSpeed(GameState* state)
+{
+    state->isFastFalling = 0;
+}
+
+void speedUpObject(GameState* state)
+{
+    state->isFastFalling = 1;
+}

@@ -1,20 +1,12 @@
 #include "keyboardDetector.h"
+#include <windows.h>
 
 keyPressed keyDetection()
 {
-    if (_kbhit()) { 
-        int ch = _getch();
+    if (GetAsyncKeyState(VK_LEFT) & 0x8000)  return LEFT_ARR;
+    if (GetAsyncKeyState(VK_RIGHT) & 0x8000) return RIGHT_ARR;
+    if (GetAsyncKeyState(VK_UP) & 0x8000)    return UP_ARR;
+    if (GetAsyncKeyState(VK_DOWN) & 0x8000)  return DOWN_ARR;
 
-        if (ch == 224 || ch == 0) {
-            ch = _getch();
-            switch (ch) {
-            case 72: return UP_ARR;
-            case 75: return LEFT_ARR;
-            case 77: return RIGHT_ARR;
-            case 80: return DOWN_ARR;
-            }
-        }
-    }
-
-    return NONE; 
+    return NONE;
 }

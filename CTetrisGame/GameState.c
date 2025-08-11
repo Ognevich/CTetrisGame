@@ -6,6 +6,8 @@ void InitGameState(GameState* state)
 	initFilledObjectArr(state);
 	state->objCurrentPos.x = START_POS_X;
 	state->objCurrentPos.y = START_POS_Y;
+	state->isFastFalling = 0;
+	state->fallDelay = NORMAL_FALL_DELAY;
 
 }
 

@@ -24,7 +24,9 @@ void setCoordPosY(int coordY, GameState* state);
 
 void getRandomFigure(GameState* state);
 
-
 void addValuesToFilledObjectArr(GameState* state);
+
+void speedUpObject(GameState* state);
+void resetFallSpeed(GameState* state);
 
 #endif

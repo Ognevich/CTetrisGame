@@ -14,4 +14,9 @@
 #define START_POS_Y 1
 #define OBJECT_SIZE 3
 
+// DELAY 
+#define NORMAL_FALL_DELAY 400
+#define FAST_FALL_DELAY 50
+#define MOVE_DELAY 40
+
 #endif

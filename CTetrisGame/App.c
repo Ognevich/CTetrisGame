@@ -22,14 +22,16 @@ void Update(GameState* state)
 {
     DWORD now = GetTickCount64();
 
-    if (now - lastMoveTime >= 40) {
+    if (now - lastMoveTime >= MOVE_DELAY) {
         playerActionHandler(state);
         lastMoveTime = now;
     }
 
-    if (now - lastFallTime >= 400) {
-        int value = checkGroundCollision(state);
-        if (value == 1) {
+    DWORD fallDelay = state->isFastFalling ? FAST_FALL_DELAY : NORMAL_FALL_DELAY;
+
+    if (now - lastFallTime >= fallDelay) {
+        int canFall = checkGroundCollision(state);
+        if (canFall == 1) {
             moveObjectDown(state);
         }
         else {
@@ -37,7 +39,6 @@ void Update(GameState* state)
             addValuesToFilledObjectArr(state);
             resetObject(state);
         }
-        
         lastFallTime = now;
     }
 
@@ -53,7 +54,6 @@ void shutdown_app(GameState* state) {
 void playerActionHandler(GameState* state)
 {
     keyPressed keyValue = keyDetection();
-
     switch (keyValue)
     {
     case LEFT_ARR:
@@ -66,8 +66,10 @@ void playerActionHandler(GameState* state)
         rotateObject(state);
         break;
     case DOWN_ARR:
+        speedUpObject(state);
         break;
     case NONE:
+        resetFallSpeed(state);
         break;
     default:
         break;

@@ -3,13 +3,17 @@
 #include <stdlib.h>
 #include "Config.h"
 #include "Vector2.h"
-
+#include <Windows.h>
 
 typedef struct {
     char** mapArr;
     char** FilledObjectArr;
     Vector2 objCurrentPos;
     char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE];
+
+    // for speed up objects
+    int isFastFalling;   
+    DWORD fallDelay;      
 }GameState;
 
 void InitGameState(GameState* state);

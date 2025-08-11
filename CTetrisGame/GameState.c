@@ -78,5 +78,15 @@ void clearGameState(GameState* state)
 	clearGameDoubleArray(&state->FilledObjectArr, MAP_HEIGHT-2);
 }
 
+void deleteLineObject(GameState* state, int coordY)
+{
+	for (int i = coordY; i > 0; i--) {
+		memcpy(state->FilledObjectArr[i], state->FilledObjectArr[i - 1], OBJECT_MAP_WIDTH);
+	}
+
+	for (int j = 0; j < OBJECT_MAP_WIDTH; j++) {
+		state->FilledObjectArr[0][j] = ' ';
+	}
+}
 
 

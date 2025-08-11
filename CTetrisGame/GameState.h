@@ -23,4 +23,5 @@ void clearFailedState(char*** array, int index);
 void clearGameDoubleArray(char*** array ,int height);
 void clearGameState(GameState* state);
 
+void deleteLineObject(GameState* state, int coordY);
 #endif 

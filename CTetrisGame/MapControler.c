@@ -153,13 +153,7 @@ void ClearFullLine(GameState* state)
 			else { break; }
 		}
 		if (objectCounter == OBJECT_MAP_WIDTH) {
-			deleteLineObject(i);
+			deleteLineObject(state, i);
 		}
 	}
-}
-
-void deleteLineObject(int coordY)
-{
-	printf("line %d deleted", coordY);
-	Sleep(1000);
 }

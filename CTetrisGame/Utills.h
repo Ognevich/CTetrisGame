@@ -7,6 +7,7 @@
 
 void clearGameScreen();
 void wait(int sleepTime);
+void setConsoleSize(int width, int height);
 
 int findMaxArrayXCoord(char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE]);
 

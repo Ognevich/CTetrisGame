@@ -13,6 +13,7 @@ void Run(GameState* state)
 
 void Init(GameState* state)
 {
+    setConsoleSize(MAP_HEIGHT, MAP_WIDTH);
     InitGameState(state);
     resetObject(state);
 }

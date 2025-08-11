@@ -34,3 +34,22 @@ int findMaxArrayXCoord(char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE])
 	}
 	return coordX;
 }
+
+void setConsoleSize(int width, int height) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    int adjustedWidth = width+7;
+    int adjustedHeight = height; 
+
+    COORD bufferSize;
+    bufferSize.X = adjustedWidth;
+    bufferSize.Y = adjustedHeight;
+    SetConsoleScreenBufferSize(hConsole, bufferSize);
+
+    SMALL_RECT windowSize;
+    windowSize.Left = 0;
+    windowSize.Top = 0;
+    windowSize.Right = adjustedWidth - 1;
+    windowSize.Bottom = adjustedHeight - 1;
+    SetConsoleWindowInfo(hConsole, TRUE, &windowSize);
+}

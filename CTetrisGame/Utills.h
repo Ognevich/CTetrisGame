@@ -11,6 +11,10 @@ void setConsoleSize(int width, int height);
 
 int findMaxArrayXCoord(char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE]);
 
+int* createIntArr(int size);
+void increaseIntArr(int **arr, int *size);
+void clearIntArr(int** arr);
+
 #endif
 
 

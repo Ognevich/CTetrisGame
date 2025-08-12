@@ -53,3 +53,34 @@ void setConsoleSize(int width, int height) {
     windowSize.Bottom = adjustedHeight - 1;
     SetConsoleWindowInfo(hConsole, TRUE, &windowSize);
 }
+
+
+int* createIntArr(int size)
+{
+    int* arr = malloc(size * sizeof(int));
+    if (arr == NULL) {
+        return 0;
+    }
+    return arr;
+}
+
+void increaseIntArr(int** arr, int* size)
+{
+    int new_size = *size + 1;
+    int* temp = realloc(*arr, new_size * sizeof(int));
+
+    if (temp == NULL) {
+        return;
+    }
+
+    *size = new_size;
+    *arr = temp;
+
+}
+
+void clearIntArr(int** arr)
+{
+    
+    free(*arr);
+    *arr = NULL;
+}

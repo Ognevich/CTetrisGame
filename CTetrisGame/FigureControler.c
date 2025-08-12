@@ -111,7 +111,7 @@ int checkRotationLeftSideCollision(GameState* state, char** rotatedFigure)
 
 int checkRotationRightSideCollision(GameState* state, char** rotatedFigure)
 {
-    int maxCoordX = findMaxArrayXCoord(rotatedFigure) + getCurrentPosX(state);
+    int maxCoordX = findMaxArrayXCoord(rotatedFigure) + state->objCurrentPos.x;
 
     for (int i = 0; i < OBJECT_SIZE; i++) {
         for (int j = 0; j < OBJECT_SIZE; j++) {

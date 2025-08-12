@@ -2,8 +2,8 @@
 #define CONFIG_H
 #include <stdio.h>
 //FULL MAP
-#define MAP_HEIGHT 20
-#define MAP_WIDTH 27
+#define MAP_HEIGHT 15
+#define MAP_WIDTH 17
 //OBJECT MAP
 #define OBJECT_MAP_HEIGHT ((MAP_HEIGHT-2))
 #define OBJECT_MAP_WIDTH ((MAP_WIDTH-2))
@@ -17,7 +17,9 @@
 
 // DELAY 
 #define NORMAL_FALL_DELAY 400
-#define FAST_FALL_DELAY 50
-#define MOVE_DELAY 40
+#define FAST_FALL_DELAY 70
+#define MOVE_DELAY 60
+#define ROTATE_DELAY 300
+#define SIDE_MOVE_DELAY 100
 
 #endif

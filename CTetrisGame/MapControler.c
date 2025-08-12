@@ -38,8 +38,8 @@ void clearMap(GameState* state)
 	for (int i = 0; i < MAP_HEIGHT; i++) {
 		for (int j = 0; j < MAP_WIDTH; j++) {
 			if (!checkMapCollision(i, j)) {
-				if (i > 0 && i < MAP_HEIGHT - 1 && j > 0 && j < MAP_WIDTH - 1) {
-					if (state->FilledObjectArr[i - 1][j - 1] != '0') {
+				if (i > 0 && i <= OBJECT_MAP_HEIGHT && j > 0 && j <= OBJECT_MAP_WIDTH) {
+					if (state->FilledObjectArr[i-1][j-1] != '0') {
 						state->mapArr[i][j] = ' ';
 					}
 				}

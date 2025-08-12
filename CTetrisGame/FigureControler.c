@@ -47,6 +47,31 @@ void rotateObject(GameState* state)
 
 int isValidRotation(GameState* state, char** rotatedFigure)
 {
+    int borderValue = checkRotationBorderCollision(state, rotatedFigure);
+
+    if (borderValue) {
+        int leftSideValue = checkRotationLeftSideCollision(state, rotatedFigure);
+        if (leftSideValue) {
+            return 1;
+            int rightSideValue = checkRotationRightSideCollision(state, rotatedFigure);
+            if (rightSideValue) {
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        }
+        else {
+            return 0;
+        }
+    }
+    else {
+        return 0;
+    }
+}
+
+int checkRotationBorderCollision(GameState* state, char** rotatedFigure)
+{
     int posX = state->objCurrentPos.x;
     int posY = state->objCurrentPos.y;
 
@@ -64,6 +89,44 @@ int isValidRotation(GameState* state, char** rotatedFigure)
         }
     }
     return 1;
+}
+
+int checkRotationLeftSideCollision(GameState* state, char** rotatedFigure)
+{
+    for (int i = 0; i < OBJECT_SIZE; i++) {
+        for (int j = 0; j < OBJECT_SIZE; j++) {
+            if (rotatedFigure[i][j] != ' ') {
+                int yPos = state->objCurrentPos.y + i - 1;
+                int xPos = state->objCurrentPos.x + j - 1;
+
+
+                if (state->FilledObjectArr[yPos][xPos - 1] == '0') {
+                    return 0;
+                }
+            }
+        }
+    }
+    return 1;
+}
+
+int checkRotationRightSideCollision(GameState* state, char** rotatedFigure)
+{
+    int maxCoordX = findMaxArrayXCoord(rotatedFigure) + getCurrentPosX(state);
+
+    for (int i = 0; i < OBJECT_SIZE; i++) {
+        for (int j = 0; j < OBJECT_SIZE; j++) {
+            if (rotatedFigure[i][j] != ' ') {
+                int yPos = state->objCurrentPos.y + i - 1;
+                int xPos = state->objCurrentPos.x + j;
+
+                if (state->FilledObjectArr[yPos][xPos + 1] == '0') {
+                    return 1;
+                }
+            }
+        }
+    }
+
+    return 0;
 }
 
 char** createDoubleCharArr()

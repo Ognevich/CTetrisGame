@@ -11,7 +11,11 @@ void moveObjectRight(GameState* state);
 
 void resetObject(GameState* state);
 void rotateObject(GameState* state);
-int isValidRotation(GameState* state, char**rotatedFigure);
+
+int isValidRotation(GameState* state, char** rotatedFigure);
+int checkRotationBorderCollision(GameState* state, char** rotatedFigure);
+int checkRotationLeftSideCollision(GameState* state, char** rotatedFigure);
+int checkRotationRightSideCollision(GameState* state, char** rotatedFigure);
 
 char** createDoubleCharArr();
 void clearDoubleCharArr(char** rotateArr);

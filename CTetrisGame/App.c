@@ -2,6 +2,8 @@
 
 static DWORD lastMoveTime = 0;
 static DWORD lastFallTime = 0;
+static DWORD lastRotateTime = 0;
+static DWORD lastMoveSideTime = 0;
 
 void Run(GameState* state)
 {
@@ -55,23 +57,39 @@ void shutdown_app(GameState* state) {
 void playerActionHandler(GameState* state)
 {
     keyPressed keyValue = keyDetection();
+    DWORD now = GetTickCount64();
+
     switch (keyValue)
     {
     case LEFT_ARR:
-        handleLeftMovement(state);
+        if (now - lastMoveSideTime >= SIDE_MOVE_DELAY) {
+            handleLeftMovement(state);
+            lastMoveSideTime = now;
+        }
         break;
+
     case RIGHT_ARR:
-        handleRightMovement(state);
+        if (now - lastMoveSideTime >= SIDE_MOVE_DELAY) {
+            handleRightMovement(state);
+            lastMoveSideTime = now;
+        }
         break;
+
     case UP_ARR:
-        rotateObject(state);
+        if (now - lastRotateTime >= ROTATE_DELAY) {
+            rotateObject(state);
+            lastRotateTime = now;
+        }
         break;
+
     case DOWN_ARR:
         speedUpObject(state);
         break;
+
     case NONE:
         resetFallSpeed(state);
         break;
+
     default:
         break;
     }

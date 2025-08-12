@@ -47,86 +47,36 @@ void rotateObject(GameState* state)
 
 int isValidRotation(GameState* state, char** rotatedFigure)
 {
-    int borderValue = checkRotationBorderCollision(state, rotatedFigure);
-
-    if (borderValue) {
-        int leftSideValue = checkRotationLeftSideCollision(state, rotatedFigure);
-        if (leftSideValue) {
-            return 1;
-            int rightSideValue = checkRotationRightSideCollision(state, rotatedFigure);
-            if (rightSideValue) {
-                return 1;
-            }
-            else {
-                return 0;
-            }
-        }
-        else {
-            return 0;
-        }
-    }
-    else {
-        return 0;
-    }
-}
-
-int checkRotationBorderCollision(GameState* state, char** rotatedFigure)
-{
     int posX = state->objCurrentPos.x;
     int posY = state->objCurrentPos.y;
 
-    for (int i = 0; i < OBJECT_SIZE; i++) {
-        for (int j = 0; j < OBJECT_SIZE; j++) {
-            if (rotatedFigure[i][j] != ' ') {
-                int mapY = posY + i;
-                int mapX = posX + j;
+    for (int i = 0; i < OBJECT_SIZE; ++i) {
+        for (int j = 0; j < OBJECT_SIZE; ++j) {
+            if (rotatedFigure[i][j] == ' ') continue;
 
-                if (mapY < 0 || mapY >= MAP_HEIGHT || mapX < 0 || mapX >= MAP_WIDTH)
-                    return 0;
-                if (state->mapArr[mapY][mapX] == '#')
-                    return 0;
+            int mapY = posY + i;
+            int mapX = posX + j;
+
+            if (mapY < 0 || mapY >= MAP_HEIGHT || mapX < 0 || mapX >= MAP_WIDTH)
+                return 0;
+
+            if (state->mapArr[mapY][mapX] == '#')
+                return 0;
+
+            int filledY = mapY - 1;
+            int filledX = mapX - 1;
+
+            if (filledY < 0 || filledY >= OBJECT_MAP_HEIGHT ||
+                filledX < 0 || filledX >= OBJECT_MAP_WIDTH)
+            {
+                return 0;
             }
+
+            if (state->FilledObjectArr[filledY][filledX] == '0')
+                return 0;
         }
     }
     return 1;
-}
-
-int checkRotationLeftSideCollision(GameState* state, char** rotatedFigure)
-{
-    for (int i = 0; i < OBJECT_SIZE; i++) {
-        for (int j = 0; j < OBJECT_SIZE; j++) {
-            if (rotatedFigure[i][j] != ' ') {
-                int yPos = state->objCurrentPos.y + i - 1;
-                int xPos = state->objCurrentPos.x + j - 1;
-
-
-                if (state->FilledObjectArr[yPos][xPos - 1] == '0') {
-                    return 0;
-                }
-            }
-        }
-    }
-    return 1;
-}
-
-int checkRotationRightSideCollision(GameState* state, char** rotatedFigure)
-{
-    int maxCoordX = findMaxArrayXCoord(rotatedFigure) + state->objCurrentPos.x;
-
-    for (int i = 0; i < OBJECT_SIZE; i++) {
-        for (int j = 0; j < OBJECT_SIZE; j++) {
-            if (rotatedFigure[i][j] != ' ') {
-                int yPos = state->objCurrentPos.y + i - 1;
-                int xPos = state->objCurrentPos.x + j;
-
-                if (state->FilledObjectArr[yPos][xPos + 1] == '0') {
-                    return 1;
-                }
-            }
-        }
-    }
-
-    return 0;
 }
 
 char** createDoubleCharArr()

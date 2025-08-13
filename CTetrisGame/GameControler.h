@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
-#ifndef APP_H
-#define APP_H
+#ifndef GAME_CONTROLER_H
+#define GAME_CONTROLER_H
 #include "stdio.h"
 #include "MapControler.h"
 #include "keyboardDetector.h"

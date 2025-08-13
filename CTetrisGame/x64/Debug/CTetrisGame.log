@@ -1,9 +1,4 @@
-﻿  App.c
-D:\my_projects\C\CTetrisGame\CTetrisGame\App.c(25,17): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
-D:\my_projects\C\CTetrisGame\CTetrisGame\App.c(60,17): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
-  FigureControler.c
-  Main.c
-D:\my_projects\C\CTetrisGame\CTetrisGame\Main.c(7,8): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-  MapControler.c
-  Generating Code...
+﻿  GameControler.c
+D:\my_projects\C\CTetrisGame\CTetrisGame\GameControler.c(25,17): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+D:\my_projects\C\CTetrisGame\CTetrisGame\GameControler.c(60,17): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
   CTetrisGame.vcxproj -> D:\my_projects\C\CTetrisGame\x64\Debug\CTetrisGame.exe

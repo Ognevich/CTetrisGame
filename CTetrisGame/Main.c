@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <time.h>
-#include "App.h"
+#include "GameControler.h"
 
 
 int main() {

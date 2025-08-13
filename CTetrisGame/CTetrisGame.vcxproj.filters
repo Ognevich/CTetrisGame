@@ -31,6 +31,9 @@
     <Filter Include="Source Files\Engine\Map">
       <UniqueIdentifier>{15ceedb9-f820-445d-b36d-f47a2f3c4128}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\GameMenu">
+      <UniqueIdentifier>{8f8f907e-5fcb-4460-921c-0b0b4dc880e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utills.c">
@@ -39,7 +42,7 @@
     <ClCompile Include="Main.c">
       <Filter>Source Files\Src</Filter>
     </ClCompile>
-    <ClCompile Include="App.c">
+    <ClCompile Include="GameControler.c">
       <Filter>Source Files\Src</Filter>
     </ClCompile>
     <ClCompile Include="Figures.c">
@@ -65,7 +68,7 @@
     <ClInclude Include="Utills.h">
       <Filter>Source Files\Utills</Filter>
     </ClInclude>
-    <ClInclude Include="App.h">
+    <ClInclude Include="GameControler.h">
       <Filter>Source Files\Src</Filter>
     </ClInclude>
     <ClInclude Include="Figures.h">

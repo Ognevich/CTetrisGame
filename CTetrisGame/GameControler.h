@@ -7,7 +7,7 @@
 #include "GameState.h"
 #include <windows.h>
 
-void Run(GameState* state);
+void RunGame(GameState* state);
 void Init(GameState* state);
 void Update(GameState* state);
 void shutdown_app(GameState* state);

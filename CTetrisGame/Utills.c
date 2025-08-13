@@ -86,3 +86,20 @@ void clearIntArr(int** arr)
     free(*arr);
     *arr = NULL;
 }
+
+GameStateType convertIntToGameStateType(int* menuOption)
+{
+    switch (*menuOption)
+    {
+    case 0:
+        return GAME_START;
+    case 1:
+        return GAME_STATISTIC;
+    case 2:
+        return GAME_SETTINGS;
+    case 3:
+        return GAME_EXIT;
+    default:
+        return GAME_MENU;
+    }
+}

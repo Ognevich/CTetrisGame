@@ -1,4 +1,2 @@
-﻿  GameControler.c
-D:\my_projects\C\CTetrisGame\CTetrisGame\GameControler.c(25,17): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
-D:\my_projects\C\CTetrisGame\CTetrisGame\GameControler.c(60,17): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+﻿  GameStateControler.c
   CTetrisGame.vcxproj -> D:\my_projects\C\CTetrisGame\x64\Debug\CTetrisGame.exe

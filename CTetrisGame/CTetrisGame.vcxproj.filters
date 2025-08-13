@@ -34,15 +34,15 @@
     <Filter Include="Source Files\Engine\GameMenu">
       <UniqueIdentifier>{8f8f907e-5fcb-4460-921c-0b0b4dc880e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Src\ProgramControl">
+      <UniqueIdentifier>{10a38c0b-0f30-4e26-9c75-473fd9a24b1e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utills.c">
       <Filter>Source Files\Utills</Filter>
     </ClCompile>
     <ClCompile Include="Main.c">
-      <Filter>Source Files\Src</Filter>
-    </ClCompile>
-    <ClCompile Include="GameControler.c">
       <Filter>Source Files\Src</Filter>
     </ClCompile>
     <ClCompile Include="Figures.c">
@@ -63,13 +63,19 @@
     <ClCompile Include="Vector2.c">
       <Filter>Source Files\Engine\Core</Filter>
     </ClCompile>
+    <ClCompile Include="GameControler.c">
+      <Filter>Source Files\Src\ProgramControl</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuArr.c">
+      <Filter>Source Files\Engine\GameMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateControler.c">
+      <Filter>Source Files\Src\ProgramControl</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utills.h">
       <Filter>Source Files\Utills</Filter>
-    </ClInclude>
-    <ClInclude Include="GameControler.h">
-      <Filter>Source Files\Src</Filter>
     </ClInclude>
     <ClInclude Include="Figures.h">
       <Filter>Source Files\Engine\Figures</Filter>
@@ -91,6 +97,18 @@
     </ClInclude>
     <ClInclude Include="MapControler.h">
       <Filter>Source Files\Engine\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="GameControler.h">
+      <Filter>Source Files\Src\ProgramControl</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuArr.h">
+      <Filter>Source Files\Engine\GameMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateControler.h">
+      <Filter>Source Files\Src\ProgramControl</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateType.h">
+      <Filter>Source Files\Engine\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

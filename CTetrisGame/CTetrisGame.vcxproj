@@ -127,9 +127,11 @@
     <ClCompile Include="FigureControler.c" />
     <ClCompile Include="Figures.c" />
     <ClCompile Include="GameState.c" />
+    <ClCompile Include="GameStateControler.c" />
     <ClCompile Include="keyboardDetector.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="MapControler.c" />
+    <ClCompile Include="MenuArr.c" />
     <ClCompile Include="Utills.c" />
     <ClCompile Include="Vector2.c" />
   </ItemGroup>
@@ -139,8 +141,11 @@
     <ClInclude Include="FigureControler.h" />
     <ClInclude Include="Figures.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="GameStateControler.h" />
+    <ClInclude Include="GameStateType.h" />
     <ClInclude Include="keyboardDetector.h" />
     <ClInclude Include="MapControler.h" />
+    <ClInclude Include="MenuArr.h" />
     <ClInclude Include="Utills.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>

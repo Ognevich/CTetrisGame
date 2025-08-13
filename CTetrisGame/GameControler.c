@@ -5,7 +5,7 @@ static DWORD lastFallTime = 0;
 static DWORD lastRotateTime = 0;
 static DWORD lastMoveSideTime = 0;
 
-void Run(GameState* state)
+void RunGame(GameState* state)
 {
     while (1) {
         Update(state);

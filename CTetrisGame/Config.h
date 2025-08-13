@@ -22,4 +22,8 @@
 #define ROTATE_DELAY 300
 #define SIDE_MOVE_DELAY 100
 
+// MENU
+#define MAIN_MENU_SIZE 4
+
+
 #endif

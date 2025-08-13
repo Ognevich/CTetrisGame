@@ -1,1 +1,12 @@
-#pragma once
+#ifndef GAME_STATE_TYPE
+#define GAME_STATE_TYPE
+
+typedef enum {
+	GAME_START,
+	GAME_STATISTIC,
+	GAME_SETTINGS,
+	GAME_EXIT,
+	GAME_MENU
+}GameStateType;
+
+#endif

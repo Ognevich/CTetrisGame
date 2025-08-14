@@ -11,7 +11,7 @@ keyPressed keyDetection()
     return NONE;
 }
 
-void keyMenuDetection(GameStateType* gameStateType)
+int keyMenuDetection(const char **menuType, int menuSize, void (*func)(void))
 {
     int menuOption = 0;
     int pressedKey = 0;
@@ -20,21 +20,21 @@ void keyMenuDetection(GameStateType* gameStateType)
         while (_kbhit()) _getch();
         
         system("cls");
-        for (int i = 0; i < MAIN_MENU_SIZE; i++) {
+        func();
+        for (int i = 0; i < menuSize; i++) {
             
             if (i == menuOption) {
-                printf("[*] %s\n", mainMenuArr[i]);
+                printf("[*] %s\n", menuType[i]);
             }
             else {
-                printf("[ ] %s\n", mainMenuArr[i]);
+                printf("[ ] %s\n", menuType[i]);
             }
         }
 
-        pressedKey = getPressKey(&menuOption, MAIN_MENU_SIZE);
+        pressedKey = getPressKey(&menuOption, menuSize);
 
         if (pressedKey == 1) {
-            *gameStateType = convertIntToGameStateType(&menuOption);
-            return;
+            return menuOption;
         }
 
     }
@@ -52,7 +52,7 @@ int getPressKey(int* menuOption, int menuSize)
             if (*menuOption > 0) (*menuOption)--;
             break;
         case 80:
-            if (*menuOption < MAIN_MENU_SIZE-1) (*menuOption)++;
+            if (*menuOption < menuSize-1) (*menuOption)++;
             break;
         default:
             break;

@@ -37,6 +37,10 @@ void setConsoleSize(int width, int height) {
     SetConsoleWindowInfo(hConsole, TRUE, &windowSize);
 }
 
+void setConsoleColor(int text, int background) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, (background << 4) | text);
+}
 
 int findMaxArrayXCoord(char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE])
 {
@@ -101,5 +105,29 @@ GameStateType convertIntToGameStateType(int* menuOption)
         return GAME_EXIT;
     default:
         return GAME_MENU;
+    }
+}
+
+void chooseGameColor(int settingsMenuOption)
+{
+    switch (settingsMenuOption)
+    {
+    case 0:
+        setConsoleColor(11, 1);
+        break;
+    case 1:
+        setConsoleColor(10, 0);
+        break;
+    case 2:
+        setConsoleColor(14, 4);
+        break;
+    case 3:
+        setConsoleColor(11, 5);
+        break;
+    case 4:
+        setConsoleColor(7, 0);
+        break;
+    default:
+        break;
     }
 }

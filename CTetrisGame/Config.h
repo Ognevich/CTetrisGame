@@ -24,6 +24,6 @@
 
 // MENU
 #define MAIN_MENU_SIZE 4
-
+#define SETTINGS_MENU_SIZE 5
 
 #endif

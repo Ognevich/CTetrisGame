@@ -75,6 +75,9 @@
     <ClCompile Include="GameOverControler.c">
       <Filter>Source Files\Engine\GameMenu</Filter>
     </ClCompile>
+    <ClCompile Include="Score.c">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utills.h">
@@ -115,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="GameOverControler.h">
       <Filter>Source Files\Engine\GameMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="Score.h">
+      <Filter>Source Files\Engine\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

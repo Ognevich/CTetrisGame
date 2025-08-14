@@ -133,6 +133,7 @@
     <ClCompile Include="Main.c" />
     <ClCompile Include="MapControler.c" />
     <ClCompile Include="MenuArr.c" />
+    <ClCompile Include="Score.c" />
     <ClCompile Include="Utills.c" />
     <ClCompile Include="Vector2.c" />
   </ItemGroup>
@@ -148,6 +149,7 @@
     <ClInclude Include="keyboardDetector.h" />
     <ClInclude Include="MapControler.h" />
     <ClInclude Include="MenuArr.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="Utills.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>

@@ -5,6 +5,7 @@
 #include "FigureControler.h"
 #include "Config.h"
 #include "Utills.h"
+#include "Score.h"
 
 void updateMap(GameState * state);
 void showMap(GameState* state);
@@ -20,5 +21,6 @@ int checkLeftObjectCollision(GameState* state);
 int checkRightObjectCollision(GameState* state);
 
 void ClearFullLine(GameState* state);
+
 
 #endif

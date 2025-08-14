@@ -6,6 +6,7 @@
 #include "keyboardDetector.h"
 #include "GameState.h"
 #include "GameOverControler.h"
+#include "Score.h"
 #include <windows.h>
 
 void RunGame(GameState* state, GameStateType * gameStateType);
@@ -18,4 +19,5 @@ void playerActionHandler(GameState* state);
 void handleLeftMovement(GameState* state);
 void handleRightMovement(GameState* state);
 
+void SaveGameStatus(GameState* state, GameStateType* gameStateType);
 #endif

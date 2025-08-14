@@ -36,15 +36,7 @@ void Update(GameState* state, GameStateType* gameStateType)
             moveObjectDown(state);
         }
         else {
-            Sleep(500);
-            addValuesToFilledObjectArr(state);
-            ClearFullLine(state);
-            if (isGameOver(state)) {
-                GameOverMessage(0);
-                *gameStateType = GAME_MENU;
-                return;
-            }
-            resetObject(state);
+            SaveGameStatus(state, gameStateType);
         }
         lastFallTime = now;
     }
@@ -116,4 +108,19 @@ void handleRightMovement(GameState* state)
         }
     }
 
+}
+
+void SaveGameStatus(GameState* state, GameStateType* gameStateType)
+{
+    Sleep(500);
+    addValuesToFilledObjectArr(state);
+    ClearFullLine(state);
+    if (isGameOver(state)) {
+        Sleep(1000);
+        GameOverMessage(state->gameScore);
+        *gameStateType = GAME_MENU;
+        return;
+    }
+    increaseScore(state, DEFAULT_SCORE_INCRESE);
+    resetObject(state);
 }

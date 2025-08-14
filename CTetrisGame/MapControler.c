@@ -30,7 +30,7 @@ void showMap(GameState* state)
 		}
 		printf("\n");
 	}
-
+	printf("Score: %d", getScore(state));
 }
 
 void clearMap(GameState* state)
@@ -153,6 +153,7 @@ void ClearFullLine(GameState* state)
 			else { break; }
 		}
 		if (objectCounter == OBJECT_MAP_WIDTH) {
+			increaseScore(state, LINE_CLEAR_SCORE_INCRESE);
 			deleteLineObject(state, i);
 		}
 	}

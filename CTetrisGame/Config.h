@@ -27,5 +27,8 @@
 #define SETTINGS_MENU_SIZE 5
 #define MENU_LINE "=================\n"
 
+//SCORE 
+#define DEFAULT_SCORE_INCRESE 100
+#define LINE_CLEAR_SCORE_INCRESE 1000
 
 #endif

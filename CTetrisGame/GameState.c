@@ -8,7 +8,7 @@ void InitGameState(GameState* state)
 	state->objCurrentPos.y = START_POS_Y;
 	state->isFastFalling = 0;
 	state->fallDelay = NORMAL_FALL_DELAY;
-
+	state->gameScore = 0;
 }
 
 void initMapArr(GameState* state)

@@ -10,27 +10,22 @@ void runProgram(GameStateType* gameStateType, GameState * state)
 
 void handleCurrentGameState(GameStateType * gameStateType, GameState* state)
 {
-	int menuOption = 0;
 	switch (*gameStateType)
 	{
 	case GAME_START:
-
-		Init(state);
-		RunGame(state);
-		shutdown_app(state);
-
+		handleGameStart(state, gameStateType);
 		break;
 	case GAME_STATISTIC:
-		*gameStateType = GAME_MENU;
+		handleGameStatistic(gameStateType);
 		break;
 	case GAME_SETTINGS:
 		handleGameSettings(gameStateType);
 		break;
+	case GAME_MENU:
+		handleGameMenu(gameStateType);
+		break;
 	case GAME_EXIT:
 		break;
-	case GAME_MENU:
-		menuOption = keyMenuDetection(mainMenuArr, MAIN_MENU_SIZE, tetrisGameIntro);
-		*gameStateType = convertIntToGameStateType(&menuOption);
 	default:
 		break;
 	}
@@ -43,4 +38,23 @@ void handleGameSettings(GameStateType* gameStateType)
 	chooseGameColor(settingsMenuOption);
 	*gameStateType = GAME_MENU;
 	return;
+}
+
+void handleGameMenu(GameStateType* gameStateType)
+{
+	int menuOption = 0;
+	menuOption = keyMenuDetection(mainMenuArr, MAIN_MENU_SIZE, tetrisGameIntro);
+	*gameStateType = convertIntToGameStateType(&menuOption);
+}
+
+void handleGameStart(GameState* state, GameStateType* gameStateType)
+{
+	Init(state);
+	RunGame(state, gameStateType);
+	shutdown_app(state);
+}
+
+void handleGameStatistic(GameStateType* gameStateType)
+{
+	*gameStateType = GAME_MENU;
 }

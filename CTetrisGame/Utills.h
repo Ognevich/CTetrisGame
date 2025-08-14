@@ -12,6 +12,7 @@ void setConsoleSize(int width, int height);
 void setConsoleColor(int textColor, int backgroundColor);
 
 int findMaxArrayXCoord(char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE]);
+int findMinArraYCoord(char ** objectFigure);
 
 int* createIntArr(int size);
 void increaseIntArr(int **arr, int *size);

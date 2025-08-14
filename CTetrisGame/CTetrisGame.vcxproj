@@ -126,6 +126,7 @@
     <ClCompile Include="GameControler.c" />
     <ClCompile Include="FigureControler.c" />
     <ClCompile Include="Figures.c" />
+    <ClCompile Include="GameOverControler.c" />
     <ClCompile Include="GameState.c" />
     <ClCompile Include="GameStateControler.c" />
     <ClCompile Include="keyboardDetector.c" />
@@ -140,6 +141,7 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="FigureControler.h" />
     <ClInclude Include="Figures.h" />
+    <ClInclude Include="GameOverControler.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateControler.h" />
     <ClInclude Include="GameStateType.h" />

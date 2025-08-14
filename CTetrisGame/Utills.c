@@ -59,6 +59,19 @@ int findMaxArrayXCoord(char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE])
 	return coordX;
 }
 
+int findMinArraYCoord(char** objectFigure)
+{
+    int minValue = OBJECT_MAP_HEIGHT;
+    for (int i = 0; i < OBJECT_MAP_HEIGHT; i++) {
+        for (int j = 0; j < OBJECT_MAP_WIDTH; j++) {
+            if (objectFigure[i][j] == '0' && minValue > i) {
+                minValue = i;
+            }
+        }
+    }
+    return minValue;
+}
+
 
 
 int* createIntArr(int size)

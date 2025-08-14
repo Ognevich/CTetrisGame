@@ -17,14 +17,14 @@ const char* settingsMenuArr[SETTINGS_MENU_SIZE] = {
 
 void tetrisGameIntro()
 {
-    printf("=================\n");
+    printf(MENU_LINE);
     printf("   TETRIS GAME   \n");
-    printf("=================\n");
+    printf(MENU_LINE);
 }
 
 void settingsIntro()
 {
-    printf("=================\n");
+    printf(MENU_LINE);
     printf("     SETTINGS    \n");
-    printf("=================\n");
+    printf(MENU_LINE);
 }

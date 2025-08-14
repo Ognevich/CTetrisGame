@@ -5,11 +5,12 @@
 #include "MapControler.h"
 #include "keyboardDetector.h"
 #include "GameState.h"
+#include "GameOverControler.h"
 #include <windows.h>
 
-void RunGame(GameState* state);
+void RunGame(GameState* state, GameStateType * gameStateType);
 void Init(GameState* state);
-void Update(GameState* state);
+void Update(GameState* state, GameStateType* gameStateType);
 void shutdown_app(GameState* state);
 
 void playerActionHandler(GameState* state);

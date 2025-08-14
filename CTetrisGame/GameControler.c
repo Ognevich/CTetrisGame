@@ -5,10 +5,10 @@ static DWORD lastFallTime = 0;
 static DWORD lastRotateTime = 0;
 static DWORD lastMoveSideTime = 0;
 
-void RunGame(GameState* state)
+void RunGame(GameState* state, GameStateType* gameStateType)
 {
-    while (1) {
-        Update(state);
+    while (*gameStateType == GAME_START) {
+        Update(state, gameStateType);
         Sleep(1); 
     }
 }
@@ -19,7 +19,7 @@ void Init(GameState* state)
     resetObject(state);
 }
 
-void Update(GameState* state)
+void Update(GameState* state, GameStateType* gameStateType)
 {
     DWORD now = GetTickCount64();
 
@@ -39,6 +39,11 @@ void Update(GameState* state)
             Sleep(500);
             addValuesToFilledObjectArr(state);
             ClearFullLine(state);
+            if (isGameOver(state)) {
+                GameOverMessage(0);
+                *gameStateType = GAME_MENU;
+                return;
+            }
             resetObject(state);
         }
         lastFallTime = now;

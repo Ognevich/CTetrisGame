@@ -7,7 +7,7 @@
 
 void saveScoreToFile(int scoreToSave);
 int* getAllDataFromFile(int * outSize);
-//int readTopFiveScores();
+int* readTopFiveScores();
 
 
 #endif

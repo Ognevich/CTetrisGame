@@ -21,6 +21,8 @@ void clearIntArr(int** arr);
 GameStateType convertIntToGameStateType(int* menuOption);
 void chooseGameColor(int settingsMenuOption);
 
+void bubbleSort(int ** arr, int size);
+
 #endif
 
 

@@ -10,9 +10,8 @@ void GameOverMessage(int currentScore)
     printf(MENU_LINE);
 
     printf("All Score: \n");
-    int size = 0;
-    int* arr = getAllDataFromFile(&size);
-    for (int i = 0; i < size; i++) {
+    int* arr = readTopFiveScores();
+    for (int i = 0; i < 5; i++) {
         printf("%d\n", arr[i]);
     }
     

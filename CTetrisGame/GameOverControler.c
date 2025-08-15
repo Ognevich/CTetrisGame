@@ -9,6 +9,15 @@ void GameOverMessage(int currentScore)
     printf("Your Score: %d\n", currentScore);
     printf(MENU_LINE);
 
+    printf("All Score: \n");
+    int size = 0;
+    int* arr = getAllDataFromFile(&size);
+    for (int i = 0; i < size; i++) {
+        printf("%d\n", arr[i]);
+    }
+    
+    clearIntArr(&arr);
+
     printf("\nPress ENTER to exit...");
 
     while (1) {

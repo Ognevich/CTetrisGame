@@ -119,6 +119,7 @@ void SaveGameStatus(GameState* state, GameStateType* gameStateType)
         Sleep(1000);
         GameOverMessage(state->gameScore);
         *gameStateType = GAME_MENU;
+        saveScoreToFile(state->gameScore);
         return;
     }
     increaseScore(state, DEFAULT_SCORE_INCRESE);

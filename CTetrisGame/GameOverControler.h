@@ -5,6 +5,7 @@
 #include "GameState.h"
 #include "Config.h"
 #include "Utills.h"
+#include "FileControler.h"
 
 void GameOverMessage(int currentScore);
 int isGameOver(GameState* state);

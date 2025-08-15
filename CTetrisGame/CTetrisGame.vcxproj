@@ -123,6 +123,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FileControler.c" />
+    <ClCompile Include="FilePath.c" />
     <ClCompile Include="GameControler.c" />
     <ClCompile Include="FigureControler.c" />
     <ClCompile Include="Figures.c" />
@@ -138,6 +140,8 @@
     <ClCompile Include="Vector2.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FileControler.h" />
+    <ClInclude Include="FilePath.h" />
     <ClInclude Include="GameControler.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="FigureControler.h" />

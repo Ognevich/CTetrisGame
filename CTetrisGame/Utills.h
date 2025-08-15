@@ -15,7 +15,7 @@ int findMaxArrayXCoord(char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE]);
 int findMinArraYCoord(char ** objectFigure);
 
 int* createIntArr(int size);
-void increaseIntArr(int **arr, int *size);
+int increaseIntArr(int **arr, int *size);
 void clearIntArr(int** arr);
 
 GameStateType convertIntToGameStateType(int* menuOption);

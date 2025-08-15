@@ -78,23 +78,24 @@ int* createIntArr(int size)
 {
     int* arr = malloc(size * sizeof(int));
     if (arr == NULL) {
-        return 0;
+        return NULL;
     }
     return arr;
 }
 
-void increaseIntArr(int** arr, int* size)
+int increaseIntArr(int** arr, int* size)
 {
     int new_size = *size + 1;
     int* temp = realloc(*arr, new_size * sizeof(int));
 
     if (temp == NULL) {
-        return;
+      
+        return 0;
     }
 
-    *size = new_size;
     *arr = temp;
-
+    *size = new_size;
+    return 1;
 }
 
 void clearIntArr(int** arr)

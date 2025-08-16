@@ -15,6 +15,7 @@ void RunGame(GameState* state, GameStateType* gameStateType)
 
 void Init(GameState* state)
 {
+    initAudio();
     InitGameState(state);
     resetObject(state);
 }

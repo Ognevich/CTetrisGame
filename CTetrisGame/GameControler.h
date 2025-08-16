@@ -9,6 +9,7 @@
 #include "GameOverControler.h"
 #include "Score.h"
 #include "FileControler.h"
+#include "SoundSystem.h"
 
 void RunGame(GameState* state, GameStateType * gameStateType);
 void Init(GameState* state);

@@ -8,15 +8,6 @@ void GameOverMessage(int currentScore)
     printf("GAME OVER\n");
     printf("Your Score: %d\n", currentScore);
     printf(MENU_LINE);
-
-    printf("All Score: \n");
-    int* arr = readTopFiveScores();
-    for (int i = 0; i < 5; i++) {
-        printf("%d\n", arr[i]);
-    }
-    
-    clearIntArr(&arr);
-
     printf("\nPress ENTER to exit...");
 
     while (1) {

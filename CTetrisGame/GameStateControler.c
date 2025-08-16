@@ -56,5 +56,6 @@ void handleGameStart(GameState* state, GameStateType* gameStateType)
 
 void handleGameStatistic(GameStateType* gameStateType)
 {
+	showScoreStatistic();
 	*gameStateType = GAME_MENU;
 }

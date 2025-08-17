@@ -66,6 +66,7 @@ int checkGroundCollision(GameState* state)
 		int currentX = coordVector[i].x + state->objCurrentPos.x - 1;
 		if ((currentY == MAP_HEIGHT - 2) || (state->FilledObjectArr[currentY][currentX] == '0')) {
 			clearVector2Arr(&coordVector);
+			playObjectCollisionEffect(&state->sound);
 			return 0;
 		}
 	}

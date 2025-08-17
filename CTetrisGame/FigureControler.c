@@ -40,6 +40,7 @@ void rotateObject(GameState* state)
                 state->tempFigureArr[i][j] = tempFigure[i][j];
             }
         }
+        playRotateEffect(&state->sound); 
     }
 
     clearDoubleCharArr(tempFigure);

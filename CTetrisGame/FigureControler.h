@@ -4,6 +4,7 @@
 #include "Config.h"
 #include "Utills.h"
 #include "GameState.h"
+#include "SoundSystem.h"
 
 void moveObjectDown(GameState * state);
 void moveObjectLeft(GameState* state);

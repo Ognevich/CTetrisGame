@@ -31,4 +31,14 @@
 #define DEFAULT_SCORE_INCRESE 100
 #define LINE_CLEAR_SCORE_INCRESE 1000
 
+
+// DEBUG
+//#define NDEBUG
+
+#ifdef NDEBUG
+	#define DBG(...) ((void)0)
+#else
+	#define DBG(...) printf(__VA_ARGS__)
+#endif
+
 #endif

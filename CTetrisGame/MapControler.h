@@ -6,6 +6,7 @@
 #include "Config.h"
 #include "Utills.h"
 #include "Score.h"
+#include "SoundSystem.h"
 
 void updateMap(GameState * state);
 void showMap(GameState* state);

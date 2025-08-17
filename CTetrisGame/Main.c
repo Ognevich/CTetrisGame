@@ -4,6 +4,7 @@
 #include "GameStateControler.h"
 
 int main() {
+
 	srand(time(NULL));
 	setConsoleSize(MAP_HEIGHT, MAP_WIDTH);
 

@@ -15,7 +15,7 @@ void RunGame(GameState* state, GameStateType* gameStateType)
 
 void Init(GameState* state)
 {
-    initAudio();
+    initAudio(&state->sound);
     InitGameState(state);
     resetObject(state);
 }
@@ -49,6 +49,7 @@ void Update(GameState* state, GameStateType* gameStateType)
 
 void shutdown_app(GameState* state) {
     clearGameState(state);
+    shutdownAudio(&state->sound);
 }
 
 void playerActionHandler(GameState* state)

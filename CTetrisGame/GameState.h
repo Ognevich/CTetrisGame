@@ -4,6 +4,7 @@
 #include "Config.h"
 #include "Vector2.h"
 #include <Windows.h>
+#include "SoundSystem.h"
 
 typedef struct {
     char** mapArr;
@@ -17,6 +18,8 @@ typedef struct {
 
     //score 
     int gameScore;
+
+    SoundSystem sound;
 }GameState;
 
 void InitGameState(GameState* state);

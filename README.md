@@ -9,6 +9,7 @@ When a line is completed, it disappears and the player earns points.
 - **Move Object Right:** Press the → (Right Arrow)
 - **Rotate Object:** Press the ↑ (Up Arrow)
 - **Speed up object:** Press the ↓ (Down Button)
+- **Exit game to menu** Press the Esc
 ## Menu Controls
 - **Move up:** Press the ↑ (Up Arrow)
 - **Move down:** Press the ↓ (Down Arrow)

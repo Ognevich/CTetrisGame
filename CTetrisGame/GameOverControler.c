@@ -26,3 +26,12 @@ int isGameOver(GameState* state)
     }
     return 0;
 }
+
+void gameOverHandler(GameState* state, GameStateType* gameStateType)
+{
+    Sleep(1000);
+    playGameOverEffect(&state->sound);
+    GameOverMessage(state->gameScore);
+    *gameStateType = GAME_MENU;
+    saveScoreToFile(state->gameScore);
+}

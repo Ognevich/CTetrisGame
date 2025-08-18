@@ -16,6 +16,7 @@ void RunGame(GameState* state, GameStateType* gameStateType)
 void Init(GameState* state)
 {
     initAudio(&state->sound);
+    playGameStartEffect(&state->sound);
     InitGameState(state);
     resetObject(state);
 }
@@ -25,7 +26,7 @@ void Update(GameState* state, GameStateType* gameStateType)
     DWORD now = GetTickCount64();
 
     if (now - lastMoveTime >= MOVE_DELAY) {
-        playerActionHandler(state);
+        playerActionHandler(state,gameStateType);
         lastMoveTime = now;
     }
 
@@ -52,7 +53,7 @@ void shutdown_app(GameState* state) {
     shutdownAudio(&state->sound);
 }
 
-void playerActionHandler(GameState* state)
+void playerActionHandler(GameState* state, GameStateType* gameStateType)
 {
     keyPressed keyValue = keyDetection();
     DWORD now = GetTickCount64();
@@ -83,7 +84,10 @@ void playerActionHandler(GameState* state)
     case DOWN_ARR:
         speedUpObject(state);
         break;
-
+    case ESC_BTN:
+        gameOverHandler(state, gameStateType);
+        *gameStateType = GAME_MENU;
+        break;
     case NONE:
         resetFallSpeed(state);
         break;
@@ -118,10 +122,7 @@ void SaveGameStatus(GameState* state, GameStateType* gameStateType)
     addValuesToFilledObjectArr(state);
     ClearFullLine(state);
     if (isGameOver(state)) {
-        Sleep(1000);
-        GameOverMessage(state->gameScore);
-        *gameStateType = GAME_MENU;
-        saveScoreToFile(state->gameScore);
+        gameOverHandler(state, gameStateType);
         return;
     }
     increaseScore(state, DEFAULT_SCORE_INCRESE);

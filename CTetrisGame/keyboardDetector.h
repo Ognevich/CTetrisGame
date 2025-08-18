@@ -5,7 +5,7 @@
 #include "Config.h"
 #include "Utills.h"
 
-typedef enum { LEFT_ARR, RIGHT_ARR, UP_ARR, DOWN_ARR, NONE}keyPressed;
+typedef enum { LEFT_ARR, RIGHT_ARR, UP_ARR, DOWN_ARR, ESC_BTN, NONE}keyPressed;
 
 keyPressed keyDetection();
 int keyMenuDetection(const char** menuType, int menuSize, void (*func)(void));

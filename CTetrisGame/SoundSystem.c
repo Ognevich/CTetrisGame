@@ -21,6 +21,12 @@ void initAudio(SoundSystem* sounds)
     sounds->clearLineEffect = Mix_LoadWAV("sounds/clearLineSound.wav");
     if (!sounds->clearLineEffect) printf("Failed to load rotateSound.wav: %s\n", Mix_GetError());
 
+    sounds->gameOverEffect = Mix_LoadWAV("sounds/gameOverSound.wav");
+    if (!sounds->gameOverEffect) printf("Failed to load rotateSound.wav: %s\n", Mix_GetError());
+
+
+    sounds->gameStartEffect = Mix_LoadWAV("sounds/gameStart.wav");
+    if (!sounds->gameStartEffect) printf("Failed to load rotateSound.wav: %s\n", Mix_GetError());
 }
 
 void playRotateEffect(SoundSystem* sounds)
@@ -39,6 +45,18 @@ void playClearLineEffect(SoundSystem* sounds)
 {
     if (sounds->clearLineEffect)
         Mix_PlayChannel(-1, sounds->clearLineEffect, 0);
+}
+
+void playGameOverEffect(SoundSystem* sounds)
+{
+    if (sounds->gameOverEffect)
+        Mix_PlayChannel(-1, sounds->gameOverEffect, 0);
+}
+
+void playGameStartEffect(SoundSystem* sounds) {
+    if (sounds->gameStartEffect) {
+        Mix_PlayChannel(-1, sounds->gameStartEffect, 0);
+    }
 }
 
 void shutdownAudio(SoundSystem* sounds)

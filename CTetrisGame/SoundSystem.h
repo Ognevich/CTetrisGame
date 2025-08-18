@@ -12,6 +12,8 @@ typedef struct {
 	Mix_Chunk* rotateEffect;
 	Mix_Chunk* CollisionEffect;
 	Mix_Chunk* clearLineEffect;
+	Mix_Chunk* gameOverEffect;
+	Mix_Chunk* gameStartEffect;
 
 }SoundSystem;
 
@@ -19,6 +21,9 @@ void initAudio(SoundSystem * sound);
 void playRotateEffect(SoundSystem* sound);
 void playObjectCollisionEffect(SoundSystem* sound);
 void playClearLineEffect(SoundSystem* sound);
+void playGameOverEffect(SoundSystem* sound);
+void playGameStartEffect(SoundSystem * sound);
+
 void shutdownAudio(SoundSystem* sounds);
 
 

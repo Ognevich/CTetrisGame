@@ -30,7 +30,8 @@ void showMap(GameState* state)
 		}
 		printf("\n");
 	}
-	printf("Score: %d", getScore(state));
+	printf("Score: %d\n", getScore(state));
+	printf("ESC to exit\n");
 }
 
 void clearMap(GameState* state)

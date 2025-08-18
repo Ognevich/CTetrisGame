@@ -9,5 +9,5 @@
 
 void GameOverMessage(int currentScore);
 int isGameOver(GameState* state);
-
+void gameOverHandler(GameState * state, GameStateType * gameStateType);
 #endif

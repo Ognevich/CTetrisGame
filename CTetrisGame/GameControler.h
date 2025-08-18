@@ -16,7 +16,7 @@ void Init(GameState* state);
 void Update(GameState* state, GameStateType* gameStateType);
 void shutdown_app(GameState* state);
 
-void playerActionHandler(GameState* state);
+void playerActionHandler(GameState* state, GameStateType* gameStateType);
 
 void handleLeftMovement(GameState* state);
 void handleRightMovement(GameState* state);

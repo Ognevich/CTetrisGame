@@ -22,7 +22,7 @@ void setConsoleSize(int width, int height) {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
     int adjustedWidth = width + 7;
-    int adjustedHeight = height;
+    int adjustedHeight = height + 2;
 
     COORD bufferSize;
     bufferSize.X = adjustedWidth;

@@ -33,12 +33,14 @@ void Update(GameState* state, GameStateType* gameStateType)
     DWORD fallDelay = state->isFastFalling ? FAST_FALL_DELAY : NORMAL_FALL_DELAY;
 
     if (now - lastFallTime >= fallDelay) {
-        int canFall = checkGroundCollision(state);
-        if (canFall == 1) {
+        int arrSize = 0;
+        Vector2* coordVector = findAllArrayObjects(state->tempFigureArr, &arrSize);
+        int isCanFall = checkGroundCollision(state, coordVector, &arrSize);
+        if (isCanFall == 1) {
             moveObjectDown(state);
         }
         else {
-            SaveGameStatus(state, gameStateType);
+            handleStopObject(state, gameStateType, coordVector);
         }
         lastFallTime = now;
     }
@@ -127,4 +129,11 @@ void SaveGameStatus(GameState* state, GameStateType* gameStateType)
     }
     increaseScore(state, DEFAULT_SCORE_INCRESE);
     resetObject(state);
+}
+
+void handleStopObject(GameState* state, GameStateType* gameStateType, Vector2* coordVector)
+{
+    clearVector2Arr(&coordVector);
+    playObjectCollisionEffect(&state->sound);
+    SaveGameStatus(state, gameStateType);
 }

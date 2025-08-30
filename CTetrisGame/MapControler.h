@@ -7,19 +7,13 @@
 #include "Utills.h"
 #include "Score.h"
 #include "SoundSystem.h"
+#include "Collisions.h"
 
 void updateMap(GameState * state);
 void showMap(GameState* state);
 void clearMap(GameState* state);
 
 void addObject(int x_coord, int y_coord, GameState* state);
-
-int checkMapCollision(int height, int width);
-int checkGroundCollision(GameState* state);
-int checkLeftWallCollision(GameState* state);
-int checkRightWallCollision(GameState* state);
-int checkLeftObjectCollision(GameState* state);
-int checkRightObjectCollision(GameState* state);
 
 void ClearFullLine(GameState* state);
 

@@ -22,4 +22,7 @@ void handleLeftMovement(GameState* state);
 void handleRightMovement(GameState* state);
 
 void SaveGameStatus(GameState* state, GameStateType* gameStateType);
+
+void handleStopObject(GameState* state, GameStateType* gameStateType,Vector2 *coordVector);
+
 #endif

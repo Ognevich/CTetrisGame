@@ -2,8 +2,8 @@
 
 Vector2* findAllArrayObjects(char currentFigure[OBJECT_SIZE][OBJECT_SIZE], int* size)
 {
-	*size = 0; 
-	Vector2* coordArr = createVector2Array();
+	*size = 0;
+	Vector2* coordArr = NULL;
 
 	for (int i = 0; i < OBJECT_SIZE; i++) {
 		for (int j = 0; j < OBJECT_SIZE; j++) {
@@ -16,7 +16,7 @@ Vector2* findAllArrayObjects(char currentFigure[OBJECT_SIZE][OBJECT_SIZE], int* 
 		}
 	}
 
-	return coordArr;
+	return coordArr; 
 }
 
 
@@ -30,17 +30,6 @@ int increaseVector2Array(Vector2** array, int* size)
 	*array = temp;
 	*size = new_size;
 	return 1;
-}
-
-Vector2* createVector2Array()
-{
-	Vector2* arr = malloc(sizeof(Vector2));
-
-	if (arr == NULL) {
-		return 0;
-	}
-
-	return arr;
 }
 
 void clearVector2Arr(Vector2** arr)

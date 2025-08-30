@@ -40,6 +40,9 @@
     <Filter Include="Source Files\Engine\Sound">
       <UniqueIdentifier>{28465fee-b3e3-4ec8-8dbd-9ca0cfb6fcc3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Collisions">
+      <UniqueIdentifier>{b43f4e48-a1a3-4b35-a2c2-7cdcd28cc4da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utills.c">
@@ -89,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="SoundSystem.c">
       <Filter>Source Files\Engine\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Collisions.c">
+      <Filter>Source Files\Engine\Collisions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="SoundSystem.h">
       <Filter>Source Files\Engine\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Collisions.h">
+      <Filter>Source Files\Engine\Collisions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -35,8 +35,33 @@ void handleGameSettings(GameStateType* gameStateType)
 {
 	int settingsMenuOption = 0;
 	settingsMenuOption = keyMenuDetection(settingsMenuArr, SETTINGS_MENU_SIZE, settingsIntro);
-	chooseGameColor(settingsMenuOption);
+	chooseGameSetting(settingsMenuOption);
 	*gameStateType = GAME_MENU;
+	return;
+}
+
+void chooseGameSetting(int gameSettingsOption)
+{
+	switch (gameSettingsOption)
+	{
+	case 0:
+		break;
+	case 1:
+	{
+		handleGameColorSettings();
+		break;
+	}
+	default:
+		break;
+	}
+
+}
+
+void handleGameColorSettings()
+{
+	int settingsMenuOption = 0;
+	settingsMenuOption = keyMenuDetection(colorSettingsMenuArr, COLOR_SETTINGS_MENU_SIZE, colorSettingsIntro);
+	chooseGameColor(settingsMenuOption);
 	return;
 }
 

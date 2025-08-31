@@ -10,7 +10,6 @@ typedef struct {
 	int y;
 }Vector2;
 
-Vector2* createVector2Array();
 Vector2* findAllArrayObjects(char tempFigureArr[OBJECT_SIZE][OBJECT_SIZE], int* size);
 
 int increaseVector2Array(Vector2** array, int* size);

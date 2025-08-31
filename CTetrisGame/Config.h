@@ -24,7 +24,8 @@
 
 // MENU
 #define MAIN_MENU_SIZE 4
-#define SETTINGS_MENU_SIZE 5
+#define COLOR_SETTINGS_MENU_SIZE 8
+#define SETTINGS_MENU_SIZE 3
 #define MENU_LINE "=================\n"
 
 //SCORE 

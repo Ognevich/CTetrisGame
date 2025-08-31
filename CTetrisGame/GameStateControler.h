@@ -10,6 +10,10 @@ void runProgram(GameStateType * gameStateType, GameState * state);
 void handleCurrentGameState(GameStateType * gameStateType, GameState* state);
 
 void handleGameSettings(GameStateType* gameStateType);
+void handleGameColorSettings();
+void handleGameSoundSettings();
+void chooseGameSetting(int gameSettingsOption);
+
 void handleGameMenu(GameStateType* gameStateType);
 void handleGameStart(GameState* gameState, GameStateType* gameStateType);
 void handleGameStatistic(GameStateType* gameStateType);

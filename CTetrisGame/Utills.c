@@ -139,7 +139,13 @@ void chooseGameColor(int settingsMenuOption)
         setConsoleColor(11, 5);
         break;
     case 4:
-        setConsoleColor(7, 0);
+        setConsoleColor(15, 1);
+        break;
+    case 5:
+        setConsoleColor(11, 0);
+        break;
+    case 6:
+        setConsoleColor(14, 1);
         break;
     default:
         break;

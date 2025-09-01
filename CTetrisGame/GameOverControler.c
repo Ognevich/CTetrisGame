@@ -30,7 +30,8 @@ int isGameOver(GameState* state)
 void gameOverHandler(GameState* state, GameStateType* gameStateType)
 {
     Sleep(1000);
-    playGameOverEffect(&state->sound);
+    if (state->isPlaySound)
+        playGameOverEffect(&state->sound);
     GameOverMessage(state->gameScore);
     *gameStateType = GAME_MENU;
     saveScoreToFile(state->gameScore);

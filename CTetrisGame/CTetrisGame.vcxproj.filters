@@ -43,6 +43,9 @@
     <Filter Include="Source Files\Engine\Collisions">
       <UniqueIdentifier>{b43f4e48-a1a3-4b35-a2c2-7cdcd28cc4da}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Settings">
+      <UniqueIdentifier>{c98bc366-d6cd-470e-963f-4a5be6596055}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utills.c">

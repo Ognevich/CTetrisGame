@@ -24,9 +24,11 @@
 
 // MENU
 #define MAIN_MENU_SIZE 4
-#define COLOR_SETTINGS_MENU_SIZE 8
 #define SETTINGS_MENU_SIZE 3
+#define COLOR_SETTINGS_MENU_SIZE 8
+#define SOUND_SETTINGS_MENU_SIZE 3
 #define MENU_LINE "=================\n"
+
 
 //SCORE 
 #define DEFAULT_SCORE_INCRESE 100

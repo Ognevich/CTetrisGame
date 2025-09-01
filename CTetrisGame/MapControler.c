@@ -61,7 +61,9 @@ void ClearFullLine(GameState* state)
 			else { break; }
 		}
 		if (objectCounter == OBJECT_MAP_WIDTH) {
-			playClearLineEffect(&state->sound);
+			if (state->isPlaySound)
+				playClearLineEffect(&state->sound);
+			
 			increaseScore(state, LINE_CLEAR_SCORE_INCRESE);
 			deleteLineObject(state, i);
 		}

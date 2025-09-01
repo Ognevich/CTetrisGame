@@ -16,10 +16,10 @@ typedef struct {
     int isFastFalling;   
     DWORD fallDelay;      
 
-    //score 
     int gameScore;
 
     SoundSystem sound;
+    int isPlaySound;
 }GameState;
 
 void InitGameState(GameState* state);

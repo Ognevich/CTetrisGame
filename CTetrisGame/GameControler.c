@@ -15,9 +15,11 @@ void RunGame(GameState* state, GameStateType* gameStateType)
 
 void Init(GameState* state)
 {
-    initAudio(&state->sound);
-    playGameStartEffect(&state->sound);
     InitGameState(state);
+    if (state->isPlaySound) {
+        initAudio(&state->sound);
+        playGameStartEffect(&state->sound);
+    }
     resetObject(state);
 }
 
@@ -134,6 +136,7 @@ void SaveGameStatus(GameState* state, GameStateType* gameStateType)
 void handleStopObject(GameState* state, GameStateType* gameStateType, Vector2* coordVector)
 {
     clearVector2Arr(&coordVector);
-    playObjectCollisionEffect(&state->sound);
+    if (state->isPlaySound)
+        playObjectCollisionEffect(&state->sound);
     SaveGameStatus(state, gameStateType);
 }

@@ -19,7 +19,7 @@ void handleCurrentGameState(GameStateType * gameStateType, GameState* state)
 		handleGameStatistic(gameStateType);
 		break;
 	case GAME_SETTINGS:
-		handleGameSettings(gameStateType);
+		handleGameSettings(state,gameStateType);
 		break;
 	case GAME_MENU:
 		handleGameMenu(gameStateType);
@@ -31,21 +31,23 @@ void handleCurrentGameState(GameStateType * gameStateType, GameState* state)
 	}
 }
 
-void handleGameSettings(GameStateType* gameStateType)
+void handleGameSettings(GameState* state,GameStateType* gameStateType)
 {
 	int settingsMenuOption = 0;
 	settingsMenuOption = keyMenuDetection(settingsMenuArr, SETTINGS_MENU_SIZE, settingsIntro);
-	chooseGameSetting(settingsMenuOption);
+	chooseGameSetting(state,settingsMenuOption);
 	*gameStateType = GAME_MENU;
 	return;
 }
 
-void chooseGameSetting(int gameSettingsOption)
+void chooseGameSetting(GameState* state,int gameSettingsOption)
 {
 	switch (gameSettingsOption)
 	{
-	case 0:
+	case 0: {
+		handleGameSoundSettings(state);
 		break;
+	}
 	case 1:
 	{
 		handleGameColorSettings();
@@ -62,6 +64,30 @@ void handleGameColorSettings()
 	int settingsMenuOption = 0;
 	settingsMenuOption = keyMenuDetection(colorSettingsMenuArr, COLOR_SETTINGS_MENU_SIZE, colorSettingsIntro);
 	chooseGameColor(settingsMenuOption);
+	return;
+}
+
+void handleGameSoundSettings(GameState* state)
+{
+	int settingsMenuOption = 0;
+	settingsMenuOption = keyMenuDetection(soundSettingsMenuArr, SOUND_SETTINGS_MENU_SIZE, soundSettingsIntro);
+	
+	switch (settingsMenuOption)
+	{
+	case 0:
+	{
+		state->isPlaySound = 1;
+		break;
+	}
+	case 1: 
+	{
+		state->isPlaySound = 0;
+		break;
+	}
+	default:
+		break;
+	}
+
 	return;
 }
 

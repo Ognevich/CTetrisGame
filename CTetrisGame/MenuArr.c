@@ -13,7 +13,6 @@ const char* settingsMenuArr[SETTINGS_MENU_SIZE] = {
     "Exit",
 };
 
-
 const char* colorSettingsMenuArr[COLOR_SETTINGS_MENU_SIZE] = {
     "Blue Neon",
     "Retro Terminal",
